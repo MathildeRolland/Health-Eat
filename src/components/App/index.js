@@ -3,7 +3,7 @@ import React from 'react';
 
 // == Import Components
 import Menu from 'src/components/Menu';
-import Nav from 'src/components/Menu/Nav';
+import Nav from 'src/containers/Nav';
 import Page from 'src/components/Page';
 import Footer from 'src/components/Footer';
 

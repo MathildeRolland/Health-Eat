@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ListItem from './ListItem';
 
 import './nav.scss';
 
-const Nav = () => (
-    <div className="nav">
+const Nav = ({ burgerIsClicked }) => (
+    <div className={burgerIsClicked ? "nav nav--open" : "nav"}>
         <ul className="nav__list">
             <ListItem text="S'INSCRIRE"/>
             <ListItem text="SE CONNECTER"/>
@@ -13,5 +14,9 @@ const Nav = () => (
         </ul>
     </div>
 );
+
+Nav.propTypes = {
+    burgerIsClicked: PropTypes.bool.isRequired,
+};
 
 export default Nav;

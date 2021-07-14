@@ -1,5 +1,7 @@
 @use 'reset';
 @use 'vars';
+@use 'mixins';
+
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;700&family=Open+Sans&display=swap');
 
 * {
@@ -8,9 +10,11 @@
 
 body {
   font-family: vars.$mainTypo;
+  font-size: 16px;
   background: vars.$light;
   color: vars.$dark;
   width: 100%;
   min-height: 100vh;
+
 }
 

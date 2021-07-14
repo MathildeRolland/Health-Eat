@@ -2,7 +2,7 @@
 @use 'src/styles/vars';
 
 .nav {
-    display: none;
+    display: block;
     position: absolute;
     top: 0;
     width: 100%;
@@ -10,16 +10,21 @@
     background: vars.$mediumGreen;
     z-index: 10;
     transform: translateY(-60%);
-    // transform: translateY(40%); Animation on burger click
     transition: transform 1s;
 
     @include mixins.tablet {
         display: block;
-        transform: none;
+        transform: translateY(12.5%);
         right: 1rem;
         width: 70%;
         z-index: 1000;
+        background: transparent;
     }
+
+    &--open {
+        transform: translateY(40%);
+    }
+
 
     &__list {
         width: 50%;
@@ -37,9 +42,13 @@
         padding: 1.5rem 0;
         border-top: 1px solid vars.$dark;
 
+        &:hover {
+            color: vars.$light;
+        }
+
         @include mixins.tablet {
             border: none;
-            margin: .5rem;
+            margin: 0 1rem;
         }
     }
 }

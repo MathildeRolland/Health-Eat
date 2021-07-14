@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Burger from './Burger';
+import Burger from 'src/containers/Burger';
 
 import Logo from './Logo.svg';
 import './menu.scss';
