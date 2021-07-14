@@ -16,6 +16,9 @@ const Page = () => (
     <Route path="/submit" exact>
       <Title title="INSCRIPTION" />
     </Route>
+    <Route path="/login" exact>
+      <Title title="SE CONNECTER" />
+    </Route>
   </div>
   
 );
