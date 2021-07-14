@@ -1,0 +1,25 @@
+@use 'src/styles/vars';
+
+.inscription {
+    display: flex;
+    flex-direction: column;
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+    }
+
+    &__label {
+        margin-bottom: .5rem;
+    }
+
+    &__input {
+        border: none;
+        height: 3rem;
+        background: vars.$inputGrey;
+        border-radius: 2.5rem 0 0 0;
+        border-bottom: 1px solid vars.$mediumPurple;
+        border-right: 1px solid vars.$mediumPurple;
+    }
+}
