@@ -1,0 +1,18 @@
+@use 'src/styles/vars';
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    background: vars.$mediumGreen;
+    padding: 1em;
+
+    &__logo-div {
+        width: 2.5em;
+        height: auto;
+    }
+
+    &__logo {
+        width: 100%;
+        height: 100%;
+    }
+}

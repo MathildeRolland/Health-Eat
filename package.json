@@ -1,5 +1,5 @@
 {
-  "name": "react-modele",
+  "name": "Health'Eat",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
@@ -51,6 +51,17 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "yarn": "^1.22.10"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:MathildeRolland/Health-Eat.git",
+  "author": "Mathilde Rolland <rolland.mmathilde@gmail.com>",
+  "license": "MIT",
+  "rules": {
+    "linebreak-style:": 0,
+    "global-require": 0,
+    "eslint linebreak-style": [0, "error", "windows"]
   }
 }
