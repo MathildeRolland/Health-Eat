@@ -3,12 +3,14 @@
 .menu {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background: vars.$mediumGreen;
     padding: 1em;
 
     &__logo-div {
         width: 2.5em;
         height: auto;
+        margin-left: .8rem;
     }
 
     &__logo {

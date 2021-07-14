@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Burger from 'src/components/Burger';
-import Nav from 'src/components/Nav';
+import Burger from './Burger';
+import Nav from './Nav';
 
 import Logo from './Logo.svg';
 import './menu.scss';

@@ -52,6 +52,9 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9",
     "yarn": "^1.22.10"
   },
   "version": "1.0.0",
@@ -62,6 +65,10 @@
   "rules": {
     "linebreak-style:": 0,
     "global-require": 0,
-    "eslint linebreak-style": [0, "error", "windows"]
+    "eslint linebreak-style": [
+      0,
+      "error",
+      "windows"
+    ]
   }
 }
