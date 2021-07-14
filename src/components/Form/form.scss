@@ -19,5 +19,11 @@
         background: vars.$mediumGreen;
         margin-left: .5rem;
         font-size: 1.5rem;
+        cursor: pointer;
+
+        &:hover {
+            background: vars.$dark;
+            color: vars.$mediumGreen;
+        }
     }
 }

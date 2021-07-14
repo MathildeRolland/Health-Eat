@@ -1,3 +1,11 @@
+@use 'src/styles/mixins';
+
 .cards {
     margin: 2rem 0;
+
+    @include mixins.desktop {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+    }
 }

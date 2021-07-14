@@ -1,11 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const ListItem = ({ text }) => (
+const ListItem = ({ text, path }) => (
   <li className="nav__list-item">
-    <a href="#" className="nav__link">
+    <NavLink to={path} className="nav__link" exact>
       {text}
-    </a>
+    </NavLink>
   </li>
 );
+
+ListItem.propTypes = {
+  path: PropTypes.string.isRequired,
+};
 
 export default ListItem;

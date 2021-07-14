@@ -8,9 +8,9 @@ import './nav.scss';
 const Nav = ({ burgerIsClicked }) => (
     <div className={burgerIsClicked ? "nav nav--open" : "nav"}>
         <ul className="nav__list">
-            <ListItem text="S'INSCRIRE"/>
-            <ListItem text="SE CONNECTER"/>
-            <ListItem text="NOUS CONTACTER"/>
+            <ListItem path="/submit" text="S'INSCRIRE"/>
+            <ListItem path="/login" text="SE CONNECTER"/>
+            <ListItem path="/contact" text="NOUS CONTACTER"/>
         </ul>
     </div>
 );

@@ -7,5 +7,9 @@
     @include mixins.tablet {
         width: 60%;
     }
+
+    @include mixins.desktop {
+        width: 70%;
+    }
 }
 
