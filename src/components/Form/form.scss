@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+
+.form {
+    display: flex;
+    align-self: flex-end;
+
+    &__input--number, &__submit {
+        border: none;
+        font-size: 1.2rem;
+    }
+
+    &__input--number {
+        width: 2rem;
+        border: 1px solid vars.$dark;
+    }
+
+    &__submit {
+        padding: 0 .7rem;
+        background: vars.$mediumGreen;
+        margin-left: .5rem;
+        font-size: 1.5rem;
+    }
+}

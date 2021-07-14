@@ -1,0 +1,35 @@
+@use 'src/styles/vars';
+
+.card {
+    box-shadow: 0 0 10px rgba(vars.$dark, .5);
+    border-radius: 1rem;
+    margin: 2rem 0;
+
+    &__image {
+        height: 12rem;
+        background: url('./joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')
+                    center center / cover
+                    no-repeat;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    &__content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: 1.2rem;
+        font-family: vars.$importantTypo;
+        margin-bottom: .5rem;
+        font-weight: 700;
+    }
+
+    &__description {
+        text-align: justify;
+        margin: 1rem 0;
+    }
+}

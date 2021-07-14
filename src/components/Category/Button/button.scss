@@ -1,0 +1,13 @@
+@use 'src/styles/vars';
+
+.button {
+    background: vars.$dark;
+    color: vars.$light;
+    padding: .5rem 1rem;
+    width: 10rem;
+    margin: auto;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: .9rem;
+}
