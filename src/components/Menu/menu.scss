@@ -6,6 +6,9 @@
     align-items: center;
     background: vars.$mediumGreen;
     padding: 1em;
+    position: relative;
+    z-index: 100;
+
 
     &__logo-div {
         width: 2.5em;

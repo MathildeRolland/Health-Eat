@@ -3,6 +3,7 @@ import React from 'react';
 
 // == Import Components
 import Menu from 'src/components/Menu';
+import Nav from 'src/components/Menu/Nav';
 import Page from 'src/components/Page';
 import Footer from 'src/components/Footer';
 
@@ -13,6 +14,7 @@ import './app.scss';
 const App = () => (
   <div className="app">
     <Menu />
+    <Nav />
     <Page />
     <Footer />
   </div>

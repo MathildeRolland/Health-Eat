@@ -1,4 +1,11 @@
+@use 'src/styles/mixins';
+
 .page {
     width: 85%;
     margin: auto;
+
+    @include mixins.tablet {
+        width: 60%;
+    }
 }
+

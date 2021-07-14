@@ -1,3 +1,45 @@
+@use 'src/styles/mixins';
+@use 'src/styles/vars';
+
 .nav {
     display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background: vars.$mediumGreen;
+    z-index: 10;
+    transform: translateY(-60%);
+    // transform: translateY(40%); Animation on burger click
+    transition: transform 1s;
+
+    @include mixins.tablet {
+        display: block;
+        transform: none;
+        right: 1rem;
+        width: 70%;
+        z-index: 1000;
+    }
+
+    &__list {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+
+        @include mixins.tablet {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+        }
+    }
+
+    &__list-item {
+        padding: 1.5rem 0;
+        border-top: 1px solid vars.$dark;
+
+        @include mixins.tablet {
+            border: none;
+            margin: .5rem;
+        }
+    }
 }
