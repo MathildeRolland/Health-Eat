@@ -11,7 +11,9 @@ const ListItem = ({ text, path }) => (
 );
 
 ListItem.propTypes = {
-  path: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  // path: PropTypes.object.isRequired,
+  toggleModal: PropTypes.func,
 };
 
 export default ListItem;

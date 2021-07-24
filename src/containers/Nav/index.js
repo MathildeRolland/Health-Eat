@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import Nav from 'src/components/Menu/Nav';
+import { toggleConnexionModal } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => ({
     burgerIsClicked: state.burgerIsClicked,

@@ -2,6 +2,7 @@ import { TOGGLE_MOBILE_MENU } from "src/actions";
 
 const initialState = {
     burgerIsClicked: false,
+    isConnexionOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
