@@ -1,3 +1,66 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
 .input {
-    
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+
+    @include mixins.desktop {
+        margin-bottom: 2.5rem ;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__label {
+        margin-bottom: .5rem;
+        // font-size: .9rem;
+
+        @include mixins.desktop {
+            margin-bottom: 0;
+            margin-right: 1rem;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: 2.5rem;
+        padding-left: 1rem;
+        background: vars.$inputGrey;
+        border: none;
+        border-radius: 1.5rem 0 0 0;
+        // border-bottom: 1px solid vars.$mediumPurple;
+        // border-right: 1px solid vars.$mediumPurple;
+        box-shadow: 2px 2px 5px vars.$mediumGrey;
+
+        @include mixins.desktop {
+            width: 70%;
+        }
+
+        @include mixins.lg-desktop {
+            width: 80%;
+        }
+    }
+
+    &__input--submit {
+        background: vars.$mediumGreen;
+        width: 40%;
+        max-width: 200px;
+        border-radius: 1.5rem;
+        box-shadow: none;
+        margin: auto;
+        padding: 0;
+        cursor: pointer;
+
+        &:hover {
+            // border: 2px solid vars.$dark;
+            background: vars.$dark;
+            color: vars.$mediumGreen;
+        }
+
+        @include mixins.desktop {
+            margin-right: 0%;
+        }
+    }
 }

@@ -1,0 +1,30 @@
+@use 'src/styles/mixins';
+
+.inscription {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    @include mixins.tablet {
+        justify-content: center;
+    }
+
+    @include mixins.desktop {
+        width: 65%;
+        margin: auto;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+
+        @include mixins.desktop {
+            margin-top: 1rem;
+        }
+
+        @include mixins.lg-desktop {
+            margin-top: 2rem;
+        }
+    }
+}   
