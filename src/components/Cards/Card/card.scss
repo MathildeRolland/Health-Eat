@@ -4,7 +4,6 @@
     box-shadow: 0 0 10px rgba(vars.$dark, .5);
     border-radius: 1rem;
     margin: 2rem 0;
-    cursor: pointer;
 
     &__image {
         height: 12rem;
@@ -12,6 +11,7 @@
                     center center / cover
                     no-repeat;
         border-radius: 1rem 1rem 0 0;
+        cursor: pointer;
     }
 
     &__content {
@@ -42,6 +42,7 @@
         width: 2.5em;
         padding: .2rem 0;
         border: 1px solid vars.$dark;
+        cursor: pointer;
     }
 
     &__input--submit {
@@ -49,6 +50,7 @@
         padding: .2rem .7rem;
         margin-left: .5rem;
         border: 1px solid vars.$mediumGreen;
+        cursor: pointer;
     }
 }
 

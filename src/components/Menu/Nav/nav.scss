@@ -13,12 +13,18 @@
     transition: transform 1s;
 
     @include mixins.tablet {
-        display: block;
         transform: translateY(12.5%);
         right: 1rem;
         width: 70%;
         z-index: 1000;
         background: transparent;
+    }
+
+    @include mixins.lg-desktop {
+        left: 0;
+        right: 100%;
+        top: 30%;
+        width: 15%;
     }
 
     &--open {
@@ -34,7 +40,12 @@
         @include mixins.tablet {
             display: flex;
             justify-content: flex-end;
+            align-items: flex-end;
             width: 100%;
+        }
+
+        @include mixins.lg-desktop {
+            flex-direction: column;
         }
     }
 

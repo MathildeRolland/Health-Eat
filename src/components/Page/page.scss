@@ -9,7 +9,12 @@
     }
 
     @include mixins.desktop {
+        width: 80%;
+    }
+
+    @include mixins.lg-desktop {
         width: 70%;
+        margin: auto;
     }
 }
 

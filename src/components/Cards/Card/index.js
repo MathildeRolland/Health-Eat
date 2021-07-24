@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Tag from 'src/components/Tag';
-import Input from 'src/components/Input';
 
 import './card.scss';
 
@@ -15,8 +14,8 @@ const Card = () => (
         </p>
         <Tag />
         <form className="card__form">
-          <Input type="number" value="1" name="quantity" className="input card__input--number"/>
-          <Input type="submit" value="+" className="input card__input--submit"/>
+          <input type="number" value="1" name="quantity" className="card__input--number"/>
+          <input type="submit" value="+" className="card__input--submit"/>
         </form>
     </div>
   </div>

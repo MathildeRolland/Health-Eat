@@ -15,8 +15,10 @@ const App = () => (
   <div className="app">
     <Menu />
     <Nav />
-    <Page />
-    <Footer />
+    <div className="app__page--desktop">
+      <Page />
+      <Footer />
+    </div>
   </div>
 );
 
