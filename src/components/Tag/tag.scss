@@ -1,0 +1,13 @@
+@use 'src/styles/vars';
+
+.tag {
+    width: 1.6rem;
+    height: 1.6rem;
+    align-self: flex-start;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &__icon {
+        background: vars.$mediumPurple;
+    }
+}

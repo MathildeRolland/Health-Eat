@@ -1,15 +1,24 @@
 // == Import npm
 import React from 'react';
 
-// == Import
-import reactLogo from './react-logo.svg';
-import './styles.css';
+// == Import Components
+import Menu from 'src/components/Menu';
+import Nav from 'src/containers/Nav';
+import Page from 'src/components/Page';
+import Footer from 'src/components/Footer';
+
+// == Import styles
+import './app.scss';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
+    <Menu />
+    <Nav />
+    <div className="app__page--desktop">
+      <Page />
+      <Footer />
+    </div>
   </div>
 );
 

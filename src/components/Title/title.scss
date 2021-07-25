@@ -1,0 +1,9 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    font-family: vars.$importantTypo;
+    margin: 2rem 0;
+}

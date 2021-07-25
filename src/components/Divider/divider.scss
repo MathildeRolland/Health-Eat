@@ -1,0 +1,20 @@
+@use 'src/styles/vars';
+
+.divider {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+
+    &__line {
+        background: vars.$dark;
+        width: 30%;
+        height: 1px;
+    }
+
+    &__triangle {
+        width: 1rem;
+        height: 1rem;
+        background: vars.$dark;
+        clip-path: polygon(0 0, 50% 100%, 100% 0);
+    }
+}

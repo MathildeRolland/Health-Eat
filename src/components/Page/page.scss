@@ -1,0 +1,21 @@
+@use 'src/styles/mixins';
+
+.page {
+    width: 85%;
+    max-width: 500px;
+    height: 100%;
+    margin: auto;
+    font-size: .9rem;
+
+    @include mixins.tablet {
+        width: 60%;
+    }
+
+    @include mixins.desktop {
+        width: 80%;
+        max-width: unset;
+        font-size: 1.1rem;
+    }
+
+}
+

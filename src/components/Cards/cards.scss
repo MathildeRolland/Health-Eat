@@ -1,0 +1,15 @@
+@use 'src/styles/mixins';
+
+.cards {
+    margin: 2rem 0;
+
+    @include mixins.desktop {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+
+    @include mixins.lg-desktop {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
