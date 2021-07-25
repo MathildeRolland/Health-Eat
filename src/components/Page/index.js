@@ -12,9 +12,6 @@ const Page = () => {
   const location = useLocation();
   const background = location.state && location.state.background;
 
-  console.log('Location:',  location);
-  console.log('background:', background);
-
   return (
     <div className="page">
       <Switch location={background || location}>

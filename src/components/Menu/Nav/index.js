@@ -12,14 +12,17 @@ const Nav = ({ burgerIsClicked }) => {
     return (
         <div className={burgerIsClicked ? "nav nav--open" : "nav"}>
             <ul className="nav__list">
-                <ListItem path="/submit" text="S'INSCRIRE" />
+                <ListItem path="/" text="ACCUEIL" exact />
+                <ListItem path="/submit" text="S'INSCRIRE" exact />
                 <ListItem 
                     path={{
                     pathname: "/login",
                     state: { background: location } // save the location where we were right before we clicked the link
                     }} 
-                    text="SE CONNECTER"/>
-                <ListItem path="/contact" text="NOUS CONTACTER" />
+                    text="SE CONNECTER"
+                    exact
+                    />
+                <ListItem path="/contact" text="NOUS CONTACTER" exact />
             </ul>
         </div>
     );
