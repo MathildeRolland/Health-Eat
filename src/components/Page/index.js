@@ -5,6 +5,7 @@ import HomeTitle from 'src/components/HomeTitle';
 import Category from 'src/components/Category';
 import Inscription from 'src/components/Inscription';
 import Connexion from 'src/containers/Connexion';
+import Contact from 'src/components/Contact';
 
 import './page.scss';
 
@@ -19,8 +20,11 @@ const Page = () => {
           <HomeTitle />
           <Category />
         </Route>
-        <Route path="/submit">
+        <Route path="/submit" exact>
           <Inscription />
+        </Route>
+        <Route path="/contact" exact>
+          <Contact />
         </Route>
       </Switch>
       

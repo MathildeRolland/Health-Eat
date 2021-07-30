@@ -1,6 +1,8 @@
 @use 'src/styles/mixins';
 
 .inscription {
+    width: 95%;
+    margin: auto;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -11,7 +13,8 @@
     }
 
     @include mixins.desktop {
-        width: 65%;
+        width: 75%;
+        max-width: 800px;
         margin: auto;
     }
 

@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 @use 'src/styles/mixins';
 
-.input {
+.input, .textarea {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
@@ -13,7 +13,7 @@
         align-items: center;
     }
 
-    &__label {
+    &__label, &__label {
         margin-bottom: .5rem;
         // font-size: .9rem;
 
@@ -23,23 +23,17 @@
         }
     }
 
-    &__input {
+    &__input, &__textarea {
         width: 100%;
         height: 2.5rem;
         padding-left: 1rem;
         background: vars.$inputGrey;
         border: none;
         border-radius: 1.5rem 0 0 0;
-        // border-bottom: 1px solid vars.$mediumPurple;
-        // border-right: 1px solid vars.$mediumPurple;
         box-shadow: 2px 2px 5px vars.$mediumGrey;
 
         @include mixins.desktop {
             width: 70%;
-        }
-
-        @include mixins.lg-desktop {
-            width: 80%;
         }
     }
 

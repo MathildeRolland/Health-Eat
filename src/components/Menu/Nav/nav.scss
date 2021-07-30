@@ -9,7 +9,7 @@
     height: auto;
     background: vars.$mediumGreen;
     z-index: 10;
-    transform: translateY(-70%);
+    transform: translateY(-80%);
     transition: transform 1s;
 
     @include mixins.tablet {
@@ -28,7 +28,7 @@
     }
 
     &--open {
-        transform: translateY(30%);
+        transform: translateY(16%);
     }
 
 
