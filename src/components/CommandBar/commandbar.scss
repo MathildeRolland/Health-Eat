@@ -1,0 +1,26 @@
+@use 'src/styles/vars';
+
+.commandbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 1rem;
+    padding: .7rem 0;
+
+    .input {
+        margin: 0 1rem;
+
+        &__input {
+            border-radius: 1.5rem;
+            height: unset;
+            padding: .5rem 1rem;
+            background: vars.$light;
+            box-shadow: none;
+            border: 1px solid vars.$inputGrey;
+        }
+
+        &__label {
+            display: none;
+        }
+    }
+}

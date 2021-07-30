@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Button from './Button';
+import Badge from './Badge';
 import Cards from 'src/components/Cards';
 
 import './category.scss';
 
 const Category = () => (
   <div className="category">
-    <Button />
+    <Badge />
     <Cards />
   </div>
 );

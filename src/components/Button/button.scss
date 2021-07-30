@@ -1,0 +1,12 @@
+@use 'src/styles/vars';
+
+.button {
+    border: none;
+    padding: .5rem 2rem;
+    border-radius: 1rem;
+
+    &--dark {
+        background: vars.$dark;
+        color: vars.$light;
+    }
+}
