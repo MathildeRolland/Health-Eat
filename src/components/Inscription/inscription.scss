@@ -10,6 +10,8 @@
 
     @include mixins.tablet {
         justify-content: center;
+        width: 70%;
+        max-width: 600px;
     }
 
     @include mixins.desktop {

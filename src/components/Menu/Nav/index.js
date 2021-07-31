@@ -14,6 +14,7 @@ const Nav = ({ burgerIsClicked }) => {
             <ul className="nav__list">
                 <ListItem path="/" text="ACCUEIL" exact />
                 <ListItem path="/submit" text="S'INSCRIRE" exact />
+                <ListItem path="/user" text="MES INFORMATIONS" exact />
                 <ListItem 
                     path={{
                     pathname: "/login",

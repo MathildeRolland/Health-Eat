@@ -1,0 +1,82 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.user {
+    width: 100%;
+
+    @include mixins.lg-desktop {
+        width: 90%;
+        margin-top: -5%;
+    }
+
+    &__infobox {
+        background: vars.$inputGrey;
+        padding: 1rem;
+        border-radius: .5rem;
+        margin-bottom: 3rem;
+
+        @include mixins.tablet {
+            padding: 2rem 1rem;
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+
+        @include mixins.desktop {
+            padding: 3rem 1rem;
+        }
+
+        @include mixins.desktop {
+            margin: 3rem auto 5rem auto;
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1.5rem;
+    }
+
+    &__properties, &__infos {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__properties {
+        font-weight: 700;
+    }
+
+    &__property, &__info {
+        margin: .5rem 0;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+
+        .button {
+            margin: .5rem auto;
+            width: 190px;
+
+            @include mixins.desktop {
+                width: 200px;
+                margin: 1rem auto;
+            }
+        }
+    }
+
+    &__lastcommands {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include mixins.tablet {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+        }
+
+        @include mixins.desktop {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+}

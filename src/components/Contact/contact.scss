@@ -4,6 +4,15 @@
     width: 100%;
     max-width: 900px;
 
+    @include mixins.tablet {
+        width: 70%;
+        max-width: 600px;
+    }
+
+    @include mixins.desktop {
+        max-width: 800px;
+    }
+
     .title {
         font-size: 1.4rem;
 

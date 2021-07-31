@@ -1,0 +1,31 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.lastcommand {
+    border: 2px solid vars.$mediumGreen;
+    border-radius: .5rem;
+    margin: 2rem 0;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        background: vars.$mediumGreen;
+        padding: .5rem
+    }
+
+    &__command {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item {
+        display: flex;
+    }
+
+    &__name, &__number {
+        margin: .3rem .5rem;
+    }
+}

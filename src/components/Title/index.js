@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './title.scss';
 
 const Title = ({ title }) => (
-  <h1 className="title">{title}</h1>
+  <h2 className="title">{title}</h2>
 );
 
 Title.propTypes = {
