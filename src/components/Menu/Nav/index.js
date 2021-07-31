@@ -17,12 +17,11 @@ const Nav = ({ burgerIsClicked }) => {
                 <ListItem path="/submit" text="S'INSCRIRE" className="nav__list-item" exact />
                 <ListItem 
                     path={{
-                    pathname: "/login",
-                    state: { background: location } // save the location where we were right before we clicked the link
+                        pathname: "/login",
+                        state: { background: location } // save the location where we were right before we clicked the link
                     }} 
                     text="SE CONNECTER"
                     className="nav__list-item nav__list-item--hidden"
-                    exact
                     />
                 <ListItem path="/contact" text="NOUS CONTACTER" className="nav__list-item" exact />
             </ul>

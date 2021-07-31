@@ -28,16 +28,19 @@ const Page = () => {
         <Route path="/submit" exact>
           <Inscription />
         </Route>
-        <Route path="/panier" exact>
+        {/* <Route path="/panier" exact>
           <Basket />
-        </Route>
+        </Route> */}
         <Route path="/contact" exact>
           <Contact />
         </Route>
       </Switch>
       
       {
-        background && <Route path="/" children={<Connexion />} />
+        background && <Route path="/login" children={<Connexion />} />
+      }
+      {
+        background && <Route path="/panier" children={<Basket />} />
       }
         
 
