@@ -13,9 +13,9 @@
     transition: transform 1s;
 
     @include mixins.tablet {
-        transform: translateY(12.5%);
+        transform: unset;
         right: 1rem;
-        width: 70%;
+        width: 80%;
         z-index: 1000;
         background: transparent;
     }
@@ -40,7 +40,6 @@
         @include mixins.tablet {
             display: flex;
             justify-content: flex-end;
-            align-items: flex-end;
             width: 100%;
         }
 
@@ -60,6 +59,14 @@
         @include mixins.tablet {
             border: none;
             margin: 0 1rem;
+            text-align: right;
         }
+
+        &--hidden {
+            @include mixins.lg-desktop {
+                display: none;
+            }
+        }
+
     }
 }

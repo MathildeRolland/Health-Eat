@@ -7,6 +7,7 @@ import Nav from 'src/containers/Nav';
 import Page from 'src/components/Page';
 import Footer from 'src/components/Footer';
 import CommandBar from 'src/components/CommandBar';
+import UserBar from 'src/components/UserBar';
 
 // == Import styles
 import './app.scss';
@@ -17,6 +18,7 @@ const App = () => (
     <Menu />
     <Nav />
     <div className="app__page--desktop">
+      <UserBar />
       <CommandBar />
       <Page />
       <Footer />

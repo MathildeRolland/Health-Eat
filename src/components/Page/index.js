@@ -7,6 +7,7 @@ import Inscription from 'src/components/Inscription';
 import Connexion from 'src/containers/Connexion';
 import Contact from 'src/components/Contact';
 import User from 'src/components/User';
+import Basket from 'src/components/Basket';
 
 import './page.scss';
 
@@ -26,6 +27,9 @@ const Page = () => {
         </Route>
         <Route path="/submit" exact>
           <Inscription />
+        </Route>
+        <Route path="/panier" exact>
+          <Basket />
         </Route>
         <Route path="/contact" exact>
           <Contact />

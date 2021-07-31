@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ListItem = ({ text, path }) => (
-  <li className="nav__list-item">
+const ListItem = ({ text, path, className }) => (
+  <li className={className}>
     <NavLink to={path} className="nav__link" exact>
       {text}
     </NavLink>

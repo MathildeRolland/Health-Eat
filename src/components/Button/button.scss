@@ -4,9 +4,20 @@
     border: none;
     padding: .5rem 2rem;
     border-radius: 1rem;
+    cursor: pointer;
 
     &--dark {
         background: vars.$dark;
         color: vars.$light;
+    }
+
+    &--colored {
+        background: vars.$mediumGreen;
+        color: vars.$dark;
+
+        &:hover {
+            background: vars.$dark;
+            color: vars.$mediumGreen;
+        }
     }
 }

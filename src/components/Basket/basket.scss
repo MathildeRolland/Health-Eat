@@ -1,0 +1,61 @@
+@use 'src/styles/vars';
+@use 'src/styles/mixins';
+
+.basket {
+    position: absolute;
+    top: 7.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    background: vars.$inputGrey;
+    padding: 1.5rem 3rem;
+    border: 1px solid vars.$mediumGreen;
+    border-radius: .5rem;
+
+    @include mixins.desktop {
+        top: 8rem;
+    }
+
+    @include mixins.lg-desktop {
+        top: 5rem;
+    }
+
+    &__item {
+        display: flex;
+        margin: .5rem 0;
+        justify-content: space-between;
+    }
+
+    &__validation {
+        display: flex;
+        margin-top: 2rem;
+        padding: 1rem 0;
+        border-top: 1px solid vars.$dark;
+    }
+
+    &__properties {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__property, &__price {
+        padding: .5rem;
+    }
+
+    &__checkbox {
+        margin-top: 1.5rem;
+        padding: 0 .5rem;
+    }
+
+    .total {
+        background: vars.$mediumPurple;
+        color: vars.$light;
+    }
+
+    .button {
+        width: 40%;
+        margin: auto;
+        padding: .5rem 1rem;
+        margin-top: 1rem;
+    }
+}

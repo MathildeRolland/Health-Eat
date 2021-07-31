@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Input from 'src/components/Input';
 import Button from 'src/components/Button';
 
@@ -12,7 +13,9 @@ const CommandBar = () => (
         placeholder="Une envie?"
         value=""
     />
-    <Button text="Panier" className="button button--dark"/>
+    <NavLink to="/panier" exact>
+      <Button text="Panier" className="button button--dark"/>
+    </NavLink>
   </div>
 );
 
