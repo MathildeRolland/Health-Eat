@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import Input from 'src/components/Input';
+import Input from 'src/containers/Input';
 import Button from 'src/components/Button';
 
 import './commandbar.scss';
 
 const CommandBar = () => {
   const location = useLocation();
+  const storageObjectName = "currentResearch";
 
   return (
     <div className="commandbar">
@@ -14,7 +15,7 @@ const CommandBar = () => {
           type="text"
           name="foodsearch"
           placeholder="Une envie?"
-          value=""
+          storageObjectName={storageObjectName}
       />
       <NavLink to={{
         pathname: "/panier",
