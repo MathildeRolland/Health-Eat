@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
+import { toggleMobileMenu } from 'src/actions';
 
 import Nav from 'src/components/Menu/Nav';
-import { toggleConnexionModal } from 'src/actions';
 
 const mapStateToProps = (state, ownProps) => ({
     burgerIsClicked: state.burgerIsClicked,
 });
 
-export default connect(mapStateToProps)(Nav);
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    handleClick: () => {
+        dispatch(toggleMobileMenu());
+    },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

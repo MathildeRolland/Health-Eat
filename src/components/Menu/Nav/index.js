@@ -6,15 +6,15 @@ import ListItem from './ListItem';
 
 import './nav.scss';
 
-const Nav = ({ burgerIsClicked }) => {
+const Nav = ({ burgerIsClicked, handleClick }) => {
     const location = useLocation();
 
     return (
         <div className={burgerIsClicked ? "nav nav--open" : "nav"}>
             <ul className="nav__list">
-                <ListItem path="/" text="ACCUEIL" className="nav__list-item" exact />
-                <ListItem path="/user" text="MES INFORMATIONS" className="nav__list-item" exact />
-                <ListItem path="/submit" text="S'INSCRIRE" className="nav__list-item" exact />
+                <ListItem path="/" text="ACCUEIL" className="nav__list-item" onClick={handleClick}  />
+                <ListItem path="/user" text="MES INFORMATIONS" className="nav__list-item" onClick={handleClick}  />
+                <ListItem path="/submit" text="S'INSCRIRE" className="nav__list-item" onClick={handleClick} />
                 <ListItem 
                     path={{
                         pathname: "/login",
@@ -22,8 +22,9 @@ const Nav = ({ burgerIsClicked }) => {
                     }} 
                     text="SE CONNECTER"
                     className="nav__list-item nav__list-item--hidden"
+                    onClick={handleClick}
                     />
-                <ListItem path="/contact" text="NOUS CONTACTER" className="nav__list-item" exact />
+                <ListItem path="/contact" text="NOUS CONTACTER" className="nav__list-item" onClick={handleClick}  />
             </ul>
         </div>
     );
