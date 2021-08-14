@@ -6,7 +6,7 @@ import Input from 'src/containers/Input';
 
 import './connexion.scss';
 
-const Connexion = () => {
+const Connexion = ({ email, password }) => {
   const history = useHistory();
   const modal = useRef(null);
   const storageObjectName = "currentUser";
@@ -34,6 +34,7 @@ const Connexion = () => {
               type="email"
               name="email"
               label="Email:"
+              value={email}
               placeholder="Veuillez renseigner votre email..."
               storageObjectName={storageObjectName}
             />
@@ -41,6 +42,7 @@ const Connexion = () => {
               type="password"
               name="password"
               label="Mot de passe:"
+              value={password}
               placeholder="Veuillez renseigner votre mot de passe..."
               storageObjectName={storageObjectName}
             />

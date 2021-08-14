@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 
 
-import reducer from 'src/reducers';
+import reducer from 'src/reducers/index.js';
 
 const store = createStore(
     reducer,

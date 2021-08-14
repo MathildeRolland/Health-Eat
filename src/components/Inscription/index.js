@@ -41,7 +41,7 @@ const Inscription = () => {
           />
           <Input
             type="password"
-            name="password-verif"
+            name="passwordVerif"
             label="Mot de passe:"
             placeholder="Veuillez de nouveau renseigner votre mot de passe..."
             storageObjectName={storageObjectName}
