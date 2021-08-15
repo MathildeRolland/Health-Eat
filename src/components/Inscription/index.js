@@ -5,7 +5,7 @@ import Input from 'src/containers/Input';
 
 import './inscription.scss';
 
-const Inscription = () => {
+const Inscription = ({ name, firstname, email, password, passwordVerif }) => {
   const storageObjectName = "newUser";
   return (
     <div className="inscription">
@@ -15,6 +15,7 @@ const Inscription = () => {
             type="text"
             name="name"
             label="Nom:"
+            value={name}
             placeholder="Veuillez renseigner votre nom..."
             storageObjectName={storageObjectName}
           />
@@ -22,6 +23,7 @@ const Inscription = () => {
             type="text"
             name="firstname"
             label="Prénom:"
+            value={firstname}
             placeholder="Veuillez renseigner votre prénom..."
             storageObjectName={storageObjectName}
           />
@@ -29,6 +31,7 @@ const Inscription = () => {
             type="email"
             name="email"
             label="Email:"
+            value={email}
             placeholder="Veuillez renseigner votre email..."
             storageObjectName={storageObjectName}
           />
@@ -36,6 +39,7 @@ const Inscription = () => {
             type="password"
             name="password"
             label="Mot de passe:"
+            value={password}
             placeholder="Veuillez renseigner un mot de passe..."
             storageObjectName={storageObjectName}
           />
@@ -43,6 +47,7 @@ const Inscription = () => {
             type="password"
             name="passwordVerif"
             label="Mot de passe:"
+            value={passwordVerif}
             placeholder="Veuillez de nouveau renseigner votre mot de passe..."
             storageObjectName={storageObjectName}
           />

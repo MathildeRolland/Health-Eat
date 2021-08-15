@@ -6,7 +6,7 @@ import Textarea from 'src/containers/Textarea';
 
 import './contact.scss';
 
-const Contact = () => {
+const Contact = ({ name, email, message }) => {
   const storageObjectName = "contact";
 
   return (
@@ -16,6 +16,7 @@ const Contact = () => {
           <Input
             type="text"
             name="name"
+            value={name}
             placeholder="Veuillez renseigner votre nom"
             label="Nom:"
             storageObjectName={storageObjectName}
@@ -23,6 +24,7 @@ const Contact = () => {
           <Input
             type="email"
             name="email"
+            value={email}
             placeholder="Veuillez renseigner votre email"
             label="Email:"
             storageObjectName={storageObjectName}
@@ -30,6 +32,7 @@ const Contact = () => {
           <Textarea
             label="Message:"
             name="message"
+            value={message}
             placeholder="Veuillez écrire votre message"
             storageObjectName={storageObjectName}
             />
