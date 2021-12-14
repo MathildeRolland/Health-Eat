@@ -1,12 +1,11 @@
 import React from 'react';
 import { Switch, Route, useLocation } from 'react-router';
 
-import HomeTitle from 'src/components/HomeTitle';
-import Category from 'src/components/Category';
-import Inscription from 'src/components/Inscription';
+import Homepage from '../../pages/Homepage';
+import Inscription from 'src/pages/Inscription/Inscription';
 import Connexion from 'src/containers/Connexion';
-import Contact from 'src/components/Contact';
-import User from 'src/components/User';
+import Contact from 'src/pages/Contact/Contact';
+import User from 'src/pages/User/User';
 import Basket from 'src/components/Basket';
 
 import './page.scss';
@@ -19,8 +18,7 @@ const Page = () => {
     <div className="page">
       <Switch location={background || location}>
         <Route path="/" exact>
-          <HomeTitle />
-          <Category />
+          <Homepage />
         </Route>
         <Route path="/user" exact>
           <User />

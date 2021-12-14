@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Title from 'src/components/Title';
-import InfosBox from './InfosBox';
+import InfosBox from 'src/components/User/InfosBox';
 import Subtitle from 'src/components/Subtitle';
-import LastCommand from './LastCommand';
+import LastCommand from 'src/components/User/LastCommand';
 
 import './user.scss';
 
