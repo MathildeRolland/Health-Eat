@@ -16,6 +16,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.14.4",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
+    "@types/jest": "^27.0.1",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "bundle-stats-webpack-plugin": "^3.0.1",
@@ -52,14 +53,17 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.21.2",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
-    "yarn": "^1.22.10"
+    "yarn": "^1.22.10",
+    "yup": "^0.32.11"
   },
   "version": "1.0.0",
   "main": "index.js",

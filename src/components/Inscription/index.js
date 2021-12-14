@@ -7,6 +7,10 @@ import './inscription.scss';
 
 const Inscription = ({ name, firstname, email, password, passwordVerif }) => {
   const storageObjectName = "newUser";
+  const onChange = () => {
+    console.log("onchange")
+  }
+
   return (
     <div className="inscription">
       <Title title="Inscription" />
@@ -16,6 +20,7 @@ const Inscription = ({ name, firstname, email, password, passwordVerif }) => {
             name="name"
             label="Nom:"
             value={name}
+            onChange={onChange}
             placeholder="Veuillez renseigner votre nom..."
             storageObjectName={storageObjectName}
           />
@@ -24,6 +29,7 @@ const Inscription = ({ name, firstname, email, password, passwordVerif }) => {
             name="firstname"
             label="Prénom:"
             value={firstname}
+            onChange={onChange}
             placeholder="Veuillez renseigner votre prénom..."
             storageObjectName={storageObjectName}
           />
@@ -40,6 +46,7 @@ const Inscription = ({ name, firstname, email, password, passwordVerif }) => {
             name="password"
             label="Mot de passe:"
             value={password}
+            onChange={onChange}
             placeholder="Veuillez renseigner un mot de passe..."
             storageObjectName={storageObjectName}
           />
@@ -48,6 +55,7 @@ const Inscription = ({ name, firstname, email, password, passwordVerif }) => {
             name="passwordVerif"
             label="Mot de passe:"
             value={passwordVerif}
+            onChange={onChange}
             placeholder="Veuillez de nouveau renseigner votre mot de passe..."
             storageObjectName={storageObjectName}
           />

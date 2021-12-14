@@ -4,8 +4,7 @@ import Connexion from 'src/components/Connexion';
 
 const mapStateToProps = (state, ownProps) => ({
     isConnexionOpen: state.isConnexionOpen,
-    email: state.user.currentUser.email,
-    password: state.user.currentUser.password,
+    currentUser: state.user.currentUser,
 });
 
 export default connect(mapStateToProps)(Connexion);
