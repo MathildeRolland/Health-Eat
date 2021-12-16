@@ -1,14 +1,14 @@
 import React from 'react';
 
 import Badge from './Badge';
-import Cards from 'src/containers/Cards';
+import Cards from 'src/components/Cards';
 
 import './category.scss';
 
-const Category = () => (
+const Category = ({ categoryTitle, meals }) => (
   <div className="category">
-    <Badge />
-    <Cards />
+    <Badge categoryTitle={categoryTitle} />
+    <Cards meals={meals} />
   </div>
 );
 

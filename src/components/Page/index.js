@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router';
 
-import Homepage from '../../pages/Homepage';
+import Homepage from 'src/containers/Homepage';
 import Inscription from 'src/pages/Inscription/Inscription';
 import Connexion from 'src/containers/Connexion';
 import Contact from 'src/pages/Contact/Contact';

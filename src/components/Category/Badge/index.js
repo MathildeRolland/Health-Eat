@@ -2,9 +2,9 @@ import React from 'react';
 
 import './badge.scss';
 
-const Badge = () => (
+const Badge = ({ categoryTitle }) => (
   <div className="badge">
-    <p className="badge__paragraph">Manger léger</p>
+    <p className="badge__paragraph">{categoryTitle}</p>
   </div>
 );
 

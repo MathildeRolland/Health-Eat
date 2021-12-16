@@ -4,10 +4,10 @@ import Card from 'src/components/Cards/Card';
 
 import './cards.scss';
 
-const Cards = ({ lowCaloriesMeals }) => (
+const Cards = ({ meals }) => (
   <div className="cards">
     {
-      lowCaloriesMeals.map((meal) => (<Card meal={meal} key={meal.id} />))
+      meals.map((meal) => (<Card meal={meal} key={meal.id} />))
     }
   </div>
 );
