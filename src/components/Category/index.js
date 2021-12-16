@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Badge from './Badge';
-import Cards from 'src/components/Cards';
+import Cards from 'src/containers/Cards';
 
 import './category.scss';
 

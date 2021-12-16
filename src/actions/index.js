@@ -14,3 +14,4 @@ export const saveInput = (value, name, storageObjectName) => ({
     name,
     storageObjectName,
 });
+

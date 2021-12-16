@@ -1,17 +1,14 @@
 import React from 'react';
 
-import Card from './Card';
+import Card from 'src/components/Cards/Card';
 
 import './cards.scss';
 
-const Cards = () => (
+const Cards = ({ lowCaloriesMeals }) => (
   <div className="cards">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    {
+      lowCaloriesMeals.map((meal) => (<Card meal={meal} key={meal.id} />))
+    }
   </div>
 );
 

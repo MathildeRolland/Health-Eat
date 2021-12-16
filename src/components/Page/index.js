@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router';
 
 import Homepage from '../../pages/Homepage';
@@ -10,9 +10,14 @@ import Basket from 'src/components/Basket';
 
 import './page.scss';
 
-const Page = () => {
+const Page = ({ fetchMealsFromApi }) => {
   const location = useLocation();
   const background = location.state && location.state.background;
+
+  // Fetch meals
+  useEffect(() => {
+    fetchMealsFromApi();
+  }, []);
 
   return (
     <div className="page">
