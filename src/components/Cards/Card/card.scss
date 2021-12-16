@@ -4,6 +4,15 @@
     box-shadow: 0 0 10px rgba(vars.$dark, .5);
     border-radius: 1rem;
     margin: 2rem 0;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &:hover &__image {
+        opacity: .75;
+    }
 
     &__image {
         height: 12rem;
