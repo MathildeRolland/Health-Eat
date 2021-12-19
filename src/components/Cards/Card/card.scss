@@ -1,6 +1,8 @@
 @use 'src/styles/vars';
 
 .card {
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 0 10px rgba(vars.$dark, .5);
     border-radius: 1rem;
     margin: 2rem 0;
@@ -16,15 +18,13 @@
 
     &__image {
         height: 12rem;
-        // background: url('./joseph-gonzalez-fdlZBWIP0aM-unsplash.jpg')
-        //             center center / cover
-        //             no-repeat;
         border-radius: 1rem 1rem 0 0;
         cursor: pointer;
     }
 
     &__content {
-        padding: 1.5rem;
+        flex: 1;
+        padding: 1.2rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -41,6 +41,17 @@
     &__description {
         text-align: justify;
         margin: 1rem 0;
+    }
+
+    &__footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__tags {
+        display: flex;
     }
 
     &__form {

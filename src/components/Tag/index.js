@@ -1,12 +1,33 @@
 import React from 'react';
 
-import glutenIcon from './4694936_allergens_allergy_badge_gluten_label_icon.svg';
+// == ICONS
+import { GiWheat, GiCow } from "react-icons/gi";
+import { RiPlantLine } from "react-icons/ri";
+
 import './tag.scss';
 
-const Tag = () => (
-  <div className="tag">
-    <img className="tag__icon" src={glutenIcon} alt="logo" />
-  </div>
-);
+const Tag = ({ diet }) => {
+
+  const chooseIcon = (diet) => {
+    switch(diet) {
+      case "gluten free":
+        return <GiWheat />;
+      case "dairy free":
+        return <GiCow />;
+      case "vegan":
+        return <RiPlantLine />;
+      default:
+        break;
+    }
+  }
+
+  return (
+    <div className="tag">
+      <div className="tag__icon">
+        {chooseIcon(diet)}
+      </div>
+    </div>
+  );
+}
 
 export default Tag;
