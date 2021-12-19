@@ -21,6 +21,7 @@
     }
 
     @include mixins.lg-desktop {
+        position: fixed;
         left: 0;
         right: 100%;
         top: 30%;
@@ -60,6 +61,10 @@
             border: none;
             margin: 0 1rem;
             text-align: right;
+        }
+
+        @include mixins.desktop {
+            font-size: 1.3em;
         }
 
         &--hidden {
