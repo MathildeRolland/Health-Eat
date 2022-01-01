@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DOMPurify from 'dompurify';
 
@@ -9,27 +9,28 @@ import Tag from 'src/components/Tag';
 import './card.scss';
 
 // == Functions
-import { retrieveFirstSentence } from 'src/functions'
+import { retrieveFirstSentence, getRandomPrice } from 'src/functions';
 
 const Card = ({ meal, addOneToQuantity, retrieveOneFromQuantity, quantity }) => {
+  // state
+  const [ price, setPrice ] = useState(getRandomPrice(8.50, 26));
 
   const handleClick = (e) => {
     e.preventDefault();
     
     if(e.currentTarget.value === '+') {
-      addOneToQuantity(meal.id);
+      addOneToQuantity({mealId: meal.id, mealTitle: meal.title, mealPrice: price});
     } else if(e.currentTarget.value === '-') {
-      retrieveOneFromQuantity(meal.id);
+      retrieveOneFromQuantity({mealId: meal.id, mealTitle: meal.title, mealPrice: price});
     } 
   }
-
-  console.log("quantity" , quantity)
 
   return (
     <div className="card">
       <div className="card__image" style={{backgroundImage: `url('${meal.image}')`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}} >
       </div>
       <div className="card__content">
+          <p className="card__price">{price}€</p>
           <h3 className="card__title">{meal.title}</h3>
           <p className="card__description" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(retrieveFirstSentence(meal.summary))}}/>
           <div className="card__footer">

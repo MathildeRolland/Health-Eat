@@ -7,6 +7,7 @@
     border-radius: 1rem;
     margin: 2rem 0;
     cursor: pointer;
+    overflow: hidden;
 
     &:hover {
         transform: scale(1.02);
@@ -24,11 +25,18 @@
 
     &__content {
         flex: 1;
-        padding: 1.2rem;
+        padding: .5rem 1.2rem 1.2rem 1.2rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        background-color: #eee;
+    }
+
+    &__price {
+        align-self: flex-end;
+        margin-bottom: .5em;
+        font-style: italic;
     }
 
     &__title {

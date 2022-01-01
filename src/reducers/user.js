@@ -40,9 +40,11 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 basket: {
                     ...state.basket,
-                    [action.payload]: {
-                        ...state.basket[action.payload],
-                        quantity: state.basket[action.payload] === undefined ? 1 : state.basket[action.payload].quantity + 1,
+                    [action.payload.mealId]: {
+                        ...state.basket[action.payload.mealId],
+                        name: action.payload.mealTitle,
+                        price: action.payload.mealPrice,
+                        quantity: state.basket[action.payload.mealId] === undefined ? 1 : state.basket[action.payload.mealId].quantity + 1,
                     }
                 }
             }
@@ -52,9 +54,11 @@ const reducer = (state = initialState, action = {}) => {
                 ...state,
                 basket: {
                     ...state.basket,
-                    [action.payload]: {
-                        ...state.basket[action.payload],
-                        quantity: state.basket[action.payload] === undefined || state.basket[action.payload].quantity <= 0 ? 0 : state.basket[action.payload].quantity - 1,
+                    [action.payload.mealId]: {
+                        ...state.basket[action.payload.mealId],
+                        name: action.payload.mealTitle,
+                        price: action.payload.mealPrice,
+                        quantity: state.basket[action.payload.mealId] === undefined || state.basket[action.payload.mealId].quantity <= 0 ? 0 : state.basket[action.payload.mealId].quantity - 1,
                     }
                 }
             }
