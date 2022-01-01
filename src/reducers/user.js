@@ -1,5 +1,9 @@
 
 import { SAVE_INPUT } from 'src/actions';
+import {
+    ADD_TO_MEAL_QUANTITY,
+    RETRIEVE_TO_MEAL_QUANTITY
+} from 'src/actions/user';
 
 const initialState = {
     currentUser: {
@@ -17,7 +21,8 @@ const initialState = {
         email: "",
         password: "",
         passwordVerif: "",
-    }
+    },
+    basket: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -30,6 +35,30 @@ const reducer = (state = initialState, action = {}) => {
                     [action.name]: action.value,
                 },
             };
+        case ADD_TO_MEAL_QUANTITY: {
+            return {
+                ...state,
+                basket: {
+                    ...state.basket,
+                    [action.payload]: {
+                        ...state.basket[action.payload],
+                        quantity: state.basket[action.payload] === undefined ? 1 : state.basket[action.payload].quantity + 1,
+                    }
+                }
+            }
+        }
+        case RETRIEVE_TO_MEAL_QUANTITY: {
+            return {
+                ...state,
+                basket: {
+                    ...state.basket,
+                    [action.payload]: {
+                        ...state.basket[action.payload],
+                        quantity: state.basket[action.payload] === undefined || state.basket[action.payload].quantity <= 0 ? 0 : state.basket[action.payload].quantity - 1,
+                    }
+                }
+            }
+        }
         default: 
             return state;
     }

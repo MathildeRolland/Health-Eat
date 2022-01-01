@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == ICONS
 import { GiWheat, GiCow } from "react-icons/gi";
@@ -29,5 +30,9 @@ const Tag = ({ diet }) => {
     </div>
   );
 }
+
+Tag.propTypes = {
+  diet: PropTypes.arrayOf(PropTypes.string)
+};
 
 export default Tag;

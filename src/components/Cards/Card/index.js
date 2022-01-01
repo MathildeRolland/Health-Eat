@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DOMPurify from 'dompurify';
 
 // == COMPONENTS
@@ -10,7 +11,19 @@ import './card.scss';
 // == Functions
 import { retrieveFirstSentence } from 'src/functions'
 
-const Card = ({ meal }) => {
+const Card = ({ meal, addOneToQuantity, retrieveOneFromQuantity, quantity }) => {
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    
+    if(e.currentTarget.value === '+') {
+      addOneToQuantity(meal.id);
+    } else if(e.currentTarget.value === '-') {
+      retrieveOneFromQuantity(meal.id);
+    } 
+  }
+
+  console.log("quantity" , quantity)
 
   return (
     <div className="card">
@@ -26,13 +39,25 @@ const Card = ({ meal }) => {
               }
             </div>
             <form className="card__form">
-              <input type="number" value="1" name="quantity" className="card__input--number"/>
-              <input type="submit" value="+" className="card__input--submit"/>
+              <input type="submit" onClick={handleClick} value="-" className="card__input--submit"/>
+              <input type="number" value={quantity} name="quantity" className="card__input--number"/>
+              <input type="submit" onClick={handleClick} value="+" className="card__input--submit"/>
             </form>
           </div>
       </div>
     </div>
   );
+}
+
+Card.defaultProps = {
+  quantity: 0,
+}
+
+Card.propTypes = {
+  meal: PropTypes.object.isRequired,
+  addOneToQuantity: PropTypes.func.isRequired,
+  retrieveOneFromQuantity: PropTypes.func.isRequired,
+  quantity: PropTypes.number,
 }
 
 export default Card;

@@ -7,8 +7,8 @@ const Homepage = ({ lowCaloriesMeals, mediumCaloriesMeals, highCaloriesMeals }) 
         <>
             <HomeTitle />
             <Category categoryTitle="Manger léger" meals={lowCaloriesMeals} />
-            <Category categoryTitle="Garder l'équilibre" meals={mediumCaloriesMeals} />
-            <Category categoryTitle="Se faire plaisir" meals={highCaloriesMeals} />
+            {/* <Category categoryTitle="Garder l'équilibre" meals={mediumCaloriesMeals} />
+            <Category categoryTitle="Se faire plaisir" meals={highCaloriesMeals} /> */}
         </>
     )
 }
