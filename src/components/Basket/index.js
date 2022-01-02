@@ -6,7 +6,7 @@ import Button from 'src/components/Button';
 
 import './basket.scss';
 
-const Basket = () => {
+const Basket = ({ basket }) => {
   const history = useHistory();
   const basketModal = useRef(null);
 
@@ -25,10 +25,16 @@ const Basket = () => {
   return (
     <div className="basket" ref={basketModal}>
       <div className="basket__current-command">
-        <BasketItem name="Salade César" price="6.50€" number="1" />
+        {
+          Object.keys(basket).map((meal, index) => {
+            console.log("meal in basket", meal)
+            return (<BasketItem name={meal.name} price={meal.price} number={meal.quantity} key={index}/>)
+          })
+        }
+        {/* <BasketItem name="Salade César" price="6.50€" number="1" />
         <BasketItem name="Burger Bacon" price="10.50€" number="2" />
         <BasketItem name="Salade de fruits" price="5€" number="2" />
-        <BasketItem name="Jus Aloe-lemon" price="2.50€" number="1" />
+        <BasketItem name="Jus Aloe-lemon" price="2.50€" number="1" /> */}
       </div>
       <div className="basket__validation">
         <div className="basket__properties">

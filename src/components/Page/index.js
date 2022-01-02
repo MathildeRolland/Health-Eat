@@ -6,7 +6,7 @@ import Inscription from 'src/pages/Inscription/Inscription';
 import Connexion from 'src/containers/Connexion';
 import Contact from 'src/pages/Contact/Contact';
 import User from 'src/pages/User/User';
-import Basket from 'src/components/Basket';
+import Basket from 'src/containers/Basket';
 
 import './page.scss';
 

@@ -22,7 +22,7 @@ const initialState = {
         password: "",
         passwordVerif: "",
     },
-    basket: {},
+    basket: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -36,31 +36,66 @@ const reducer = (state = initialState, action = {}) => {
                 },
             };
         case ADD_TO_MEAL_QUANTITY: {
+            const currentMeal = state.basket.find((meal) => meal.id === action.payload.mealId);
+
             return {
                 ...state,
-                basket: {
-                    ...state.basket,
-                    [action.payload.mealId]: {
-                        ...state.basket[action.payload.mealId],
-                        name: action.payload.mealTitle,
-                        price: action.payload.mealPrice,
-                        quantity: state.basket[action.payload.mealId] === undefined ? 1 : state.basket[action.payload.mealId].quantity + 1,
-                    }
-                }
+                basket:
+                    !currentMeal ?
+                        [ 
+                            ...state.basket,
+                            {
+                                id: action.payload.mealId,
+                                name: action.payload.mealTitle,
+                                price: action.payload.mealPrice,
+                                quantity: 1
+                            }
+                        ]
+                    :
+                        [
+                            ...state.basket.filter((meal) => meal.id !== action.payload.mealId),
+                            {
+                                ...currentMeal,
+                                quantity: currentMeal.quantity += 1
+                            }
+                        ]
+                // basket: {
+                //     ...state.basket,
+                //     [action.payload.mealId]: {
+                //         ...state.basket[action.payload.mealId],
+                //         name: action.payload.mealTitle,
+                //         price: action.payload.mealPrice,
+                //         quantity: state.basket[action.payload.mealId] === undefined ? 1 : state.basket[action.payload.mealId].quantity + 1,
+                //     }
+                // }
             }
         }
         case RETRIEVE_TO_MEAL_QUANTITY: {
+            const currentMeal = state.basket.find((meal) => meal.id === action.payload.mealId);
+
             return {
                 ...state,
-                basket: {
-                    ...state.basket,
-                    [action.payload.mealId]: {
-                        ...state.basket[action.payload.mealId],
-                        name: action.payload.mealTitle,
-                        price: action.payload.mealPrice,
-                        quantity: state.basket[action.payload.mealId] === undefined || state.basket[action.payload.mealId].quantity <= 0 ? 0 : state.basket[action.payload.mealId].quantity - 1,
-                    }
-                }
+                basket:
+                currentMeal !== undefined ?
+                    [
+                        ...state.basket.filter((meal) => meal.id !== action.payload.mealId),
+                        {
+                            ...currentMeal,
+                            quantity: currentMeal.quantity > 0 ? currentMeal.quantity -= 1 : 0
+                        }
+                    ]
+                    : [
+                        ...state.basket
+                    ]
+                // basket: {
+                //     ...state.basket,
+                //     [action.payload.mealId]: {
+                //         ...state.basket[action.payload.mealId],
+                //         name: action.payload.mealTitle,
+                //         price: action.payload.mealPrice,
+                //         quantity: state.basket[action.payload.mealId] === undefined || state.basket[action.payload.mealId].quantity <= 0 ? 0 : state.basket[action.payload.mealId].quantity - 1,
+                //     }
+                // }
             }
         }
         default: 
