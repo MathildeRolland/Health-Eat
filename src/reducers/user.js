@@ -48,7 +48,8 @@ const reducer = (state = initialState, action = {}) => {
                                 id: action.payload.mealId,
                                 name: action.payload.mealTitle,
                                 price: action.payload.mealPrice,
-                                quantity: 1
+                                quantity: 1,
+                                totalPrice: 1 * action.payload.mealPrice
                             }
                         ]
                     :
@@ -56,18 +57,10 @@ const reducer = (state = initialState, action = {}) => {
                             ...state.basket.filter((meal) => meal.id !== action.payload.mealId),
                             {
                                 ...currentMeal,
-                                quantity: currentMeal.quantity += 1
+                                quantity: currentMeal.quantity += 1,
+                                totalPrice: currentMeal.quantity * currentMeal.price,
                             }
                         ]
-                // basket: {
-                //     ...state.basket,
-                //     [action.payload.mealId]: {
-                //         ...state.basket[action.payload.mealId],
-                //         name: action.payload.mealTitle,
-                //         price: action.payload.mealPrice,
-                //         quantity: state.basket[action.payload.mealId] === undefined ? 1 : state.basket[action.payload.mealId].quantity + 1,
-                //     }
-                // }
             }
         }
         case RETRIEVE_TO_MEAL_QUANTITY: {
@@ -81,21 +74,13 @@ const reducer = (state = initialState, action = {}) => {
                         ...state.basket.filter((meal) => meal.id !== action.payload.mealId),
                         {
                             ...currentMeal,
-                            quantity: currentMeal.quantity > 0 ? currentMeal.quantity -= 1 : 0
+                            quantity: currentMeal.quantity > 0 ? currentMeal.quantity -= 1 : 0,
+                            totalPrice: currentMeal.quantity * currentMeal.price
                         }
                     ]
                     : [
                         ...state.basket
                     ]
-                // basket: {
-                //     ...state.basket,
-                //     [action.payload.mealId]: {
-                //         ...state.basket[action.payload.mealId],
-                //         name: action.payload.mealTitle,
-                //         price: action.payload.mealPrice,
-                //         quantity: state.basket[action.payload.mealId] === undefined || state.basket[action.payload.mealId].quantity <= 0 ? 0 : state.basket[action.payload.mealId].quantity - 1,
-                //     }
-                // }
             }
         }
         default: 

@@ -1,15 +1,29 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+// == COMPONENTS
 import BasketItem from './BasketItem';
 import Button from 'src/components/Button';
 
+// == STYLES
 import './basket.scss';
 
+// == FUNCTIONS
+import { calcTotalPriceHT } from '../../functions';
+
+// Render
 const Basket = ({ basket }) => {
   const history = useHistory();
+  console.log("totalPrice", calcTotalPriceHT(basket))
+
+  // State
+  let [ totalTTC, setTotalTTC ] = useState(calcTotalPriceHT(basket));
+  const [ deliverPrice, setDeliverPrice ] = useState(4);
+
+  // Refs
   const basketModal = useRef(null);
 
+  // Close modal
   useEffect(() => {
     const handleClick = (evt) => {
       if(!basketModal.current.contains(evt.target)) {
@@ -26,25 +40,20 @@ const Basket = ({ basket }) => {
     <div className="basket" ref={basketModal}>
       <div className="basket__current-command">
         {
-          Object.keys(basket).map((meal, index) => {
-            console.log("meal in basket", meal)
-            return (<BasketItem name={meal.name} price={meal.price} number={meal.quantity} key={index}/>)
-          })
+          basket.map((meal) => <BasketItem name={meal.name} price={meal.price} number={meal.quantity} key={meal.id} />)
         }
-        {/* <BasketItem name="Salade César" price="6.50€" number="1" />
-        <BasketItem name="Burger Bacon" price="10.50€" number="2" />
-        <BasketItem name="Salade de fruits" price="5€" number="2" />
-        <BasketItem name="Jus Aloe-lemon" price="2.50€" number="1" /> */}
       </div>
       <div className="basket__validation">
         <div className="basket__properties">
           <p className="basket__property">Total</p>
+          <p className="basket__property">Livraison</p>
           <p className="basket__property">Total avec livraison</p>
           <p className="basket__property basket__checkbox">Demander des couverts, pailles...</p>
         </div>
         <div className="basket__prices">
-          <p className="basket__price">33.50€</p>
-          <p className="basket__price total">37.50€</p>
+          <p className="basket__price">{totalTTC.toFixed(2)}€</p>
+          <p className='basket__price'>{deliverPrice}€</p>
+          <p className="basket__price total">{(totalTTC += deliverPrice).toFixed(2)}€</p>
           <input type="checkbox" className="basket__checkbox" />
         </div>
       </div>
