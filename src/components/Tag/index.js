@@ -32,7 +32,7 @@ const Tag = ({ diet }) => {
 }
 
 Tag.propTypes = {
-  diet: PropTypes.arrayOf(PropTypes.string)
+  diet: PropTypes.string
 };
 
 export default Tag;

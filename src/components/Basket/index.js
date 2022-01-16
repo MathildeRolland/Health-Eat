@@ -19,6 +19,7 @@ const Basket = ({ basket }) => {
   // State
   let [ totalTTC, setTotalTTC ] = useState(calcTotalPriceHT(basket));
   const [ deliverPrice, setDeliverPrice ] = useState(4);
+  const [ isChecked, setIsChecked ] = useState(false);
 
   // Refs
   const basketModal = useRef(null);
@@ -36,6 +37,10 @@ const Basket = ({ basket }) => {
     return () => window.removeEventListener("click", handleClick);
   }, []);
 
+  const handleChange = () => {
+    setIsChecked(!isChecked);
+  }
+  
   return (
     <div className="basket" ref={basketModal}>
       <div className="basket__current-command">
@@ -54,7 +59,7 @@ const Basket = ({ basket }) => {
           <p className="basket__price">{totalTTC.toFixed(2)}€</p>
           <p className='basket__price'>{deliverPrice}€</p>
           <p className="basket__price total">{(totalTTC += deliverPrice).toFixed(2)}€</p>
-          <input type="checkbox" className="basket__checkbox" />
+          <input type="checkbox" className="basket__checkbox" onChange={handleChange}/>
         </div>
       </div>
       <Button text="Commander" className="button button--colored"/>

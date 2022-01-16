@@ -5,5 +5,4 @@ dist/
 Thumbs.db
 
 yarn-error.log
-src
 .env

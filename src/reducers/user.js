@@ -5,7 +5,7 @@ import {
     RETRIEVE_TO_MEAL_QUANTITY
 } from 'src/actions/user';
 
-const initialState = {
+export const initialState = {
     currentUser: {
         email: "",
         password: "",
@@ -25,7 +25,7 @@ const initialState = {
     basket: [],
 };
 
-const reducer = (state = initialState, action = {}) => {
+export const reducer = (state = initialState, action = {}) => {
     switch(action.type) {
         case SAVE_INPUT:
             return {

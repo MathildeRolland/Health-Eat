@@ -17,6 +17,7 @@ const Card = ({ meal, addOneToQuantity, retrieveOneFromQuantity, quantity }) => 
 
   const handleClick = (e) => {
     e.preventDefault();
+    console.log("triggered")
     
     if(e.currentTarget.value === '+') {
       addOneToQuantity({mealId: meal.id, mealTitle: meal.title, mealPrice: price});
@@ -27,7 +28,10 @@ const Card = ({ meal, addOneToQuantity, retrieveOneFromQuantity, quantity }) => 
 
   return (
     <div className="card">
-      <div className="card__image" style={{backgroundImage: `url('${meal.image}')`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}} >
+      <div
+        className="card__image"
+        style={{backgroundImage: `url('${meal.image}')`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}
+      >
       </div>
       <div className="card__content">
           <p className="card__price">{price}€</p>
@@ -36,13 +40,28 @@ const Card = ({ meal, addOneToQuantity, retrieveOneFromQuantity, quantity }) => 
           <div className="card__footer">
             <div className="card__tags">
               {
-                meal.diets.filter((diet) => diet === "gluten free" || diet === "dairy free" || diet === "vegan").map((diet) => <Tag diet={diet} />)
+                meal.diets.filter((diet) => diet === "gluten free" || diet === "dairy free" || diet === "vegan").map((diet) => <Tag diet={diet} key={diet} />)
               }
             </div>
             <form className="card__form">
-              <input type="submit" onClick={handleClick} value="-" className="card__input--submit"/>
-              <input type="number" value={quantity} name="quantity" className="card__input--number"/>
-              <input type="submit" onClick={handleClick} value="+" className="card__input--submit"/>
+              <button
+                name="minus"
+                value="-"
+                onClick={handleClick}
+                className={quantity > 0 ? "card__input--submit" : "card__input--submit card__input--submit-disabled"}
+                disabled={quantity <= 0}
+              >
+                -
+              </button>
+              <input type="number" value={quantity} onChange={() => console.log("on change")} name="quantity" className="card__input--number"/>
+              <button
+                name="plus"
+                value="+"
+                onClick={handleClick}
+                className="card__input--submit"
+              >
+                +
+              </button>
             </form>
           </div>
       </div>
@@ -56,8 +75,8 @@ Card.defaultProps = {
 
 Card.propTypes = {
   meal: PropTypes.object.isRequired,
-  addOneToQuantity: PropTypes.func.isRequired,
-  retrieveOneFromQuantity: PropTypes.func.isRequired,
+  addOneToQuantity: PropTypes.func,
+  retrieveOneFromQuantity: PropTypes.func,
   quantity: PropTypes.number,
 }
 

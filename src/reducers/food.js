@@ -4,13 +4,13 @@ import {
     STORE_HIGH_CAL_MEALS
 } from 'src/actions/meals';
 
-const initialState = {
+export const initialState = {
     lowCaloriesMeals: [],
     mediumCaloriesMeals: [],
     highCaloriesMeals: []
 };
 
-const reducer = (state = initialState, action = {}) => {
+export const reducer = (state = initialState, action = {}) => {
     switch(action.type) {
         case STORE_LOW_CAL_MEALS: {
             return {
