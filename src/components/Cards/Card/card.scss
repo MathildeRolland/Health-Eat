@@ -80,5 +80,10 @@
         border: 1px solid vars.$mediumGreen;
         cursor: pointer;
     }
+
+    &__input--submit-disabled {
+        background-color: vars.$inputGrey;
+        border: 1px solid vars.$mediumGrey;
+    }
 }
 

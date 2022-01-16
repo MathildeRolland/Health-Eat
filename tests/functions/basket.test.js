@@ -1,6 +1,6 @@
 import { getRandomPrice, calcTotalPriceHT } from '../../src/functions/index';
 
-describe('Function - basket', () => {
+describe('Basket - Functions', () => {
     describe('getRandomPrice', () => {
         describe('Structure', () => {
             it("should be a function", () => {

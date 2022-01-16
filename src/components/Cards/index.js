@@ -9,7 +9,7 @@ import './cards.scss';
 const Cards = ({ meals }) => (
   <div className="cards">
     {
-      datas.map((meal) => (<Card meal={meal} key={meal.id} />))
+      meals.map((meal) => (<Card meal={meal} key={meal.id} />))
     }
   </div>
 );
