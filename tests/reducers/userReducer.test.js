@@ -1,4 +1,4 @@
-import { reducer } from '../../src/reducers/user';
+import { reducer, initialState } from '../../src/reducers/user';
 import { addToMealQuantity, RetrieveToMealQuantity } from '../../src/actions/user';
 
 describe('User Reducer', () => {
@@ -13,8 +13,13 @@ describe('User Reducer', () => {
     });
 
     describe('Execution', () => {
-        it('should return the initial State when it doesn\'t have any parameter passed', () => {
-            const initialState = {
+        it('should return the initial State when called without any paramaters', () => {
+            expect(reducer()).toEqual(initialState);
+        });
+
+        // Test of the expected structure
+        it('should return the right initial State when called without any paramaters', () => {
+            const expectedInitialState = {
                 currentUser: {
                     email: "",
                     password: "",
@@ -33,7 +38,7 @@ describe('User Reducer', () => {
                 },
                 basket: [],
             }
-            expect(reducer()).toEqual(initialState);
+            expect(reducer()).toEqual(expectedInitialState);
         });
 
         it('should return new state if parameters are passed', () => {

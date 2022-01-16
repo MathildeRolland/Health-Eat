@@ -5,7 +5,7 @@ import {
     RETRIEVE_TO_MEAL_QUANTITY
 } from 'src/actions/user';
 
-const initialState = {
+export const initialState = {
     currentUser: {
         email: "",
         password: "",
