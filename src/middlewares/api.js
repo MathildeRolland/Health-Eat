@@ -27,9 +27,7 @@ export const apiMiddleware = (store) => (next) => (action) => {
                 }
             };
 
-            fetchMeals(config, store, storeLowCalMeals)
-                .then((res) => console.log("Réponse depuis le middleware", res))
-                .catch((err) => console.log("Erreur depuis le middelware", err));
+            fetchMeals(config, store, storeLowCalMeals);
 
             break;
         }
@@ -47,9 +45,7 @@ export const apiMiddleware = (store) => (next) => (action) => {
                 }
             };
 
-            fetchMeals(config, store, storeMediumCalMeals)
-                .then((res) => console.log("Réponse depuis le middleware", res))
-                .catch((err) => console.log("Erreur depuis le middelware", err));
+            fetchMeals(config, store, storeMediumCalMeals);
 
             break;
         }
@@ -67,9 +63,7 @@ export const apiMiddleware = (store) => (next) => (action) => {
                 }
             };
 
-            fetchMeals(config, store, storeHighCalMeals)
-                .then((res) => console.log("Réponse depuis le middleware", res))
-                .catch((err) => console.log("Erreur depuis le middelware", err));
+            fetchMeals(config, store, storeHighCalMeals);
 
             break;
         }

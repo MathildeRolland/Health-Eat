@@ -59,7 +59,9 @@ const Inscription = ({ name, firstname, email, password, passwordVerif }) => {
             placeholder="Veuillez de nouveau renseigner votre mot de passe..."
             storageObjectName={storageObjectName}
           />
-          <Input type="submit" value="M'INSCRIRE" />
+          <div className="input">
+            <input className="input__input input__input--submit" type="submit" value="M'INSCRIRE" />
+          </div>
       </form>
     </div>
   );
