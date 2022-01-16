@@ -25,7 +25,7 @@ const initialState = {
     basket: [],
 };
 
-const reducer = (state = initialState, action = {}) => {
+export const reducer = (state = initialState, action = {}) => {
     switch(action.type) {
         case SAVE_INPUT:
             return {

@@ -13,6 +13,7 @@ describe('Basket - Functions', () => {
                 expect (typeof getRandomPrice(min, max)).toBe('number');
             });
         });
+
     })
 
     describe('calcTotalPriceHT', () => {
