@@ -18,7 +18,7 @@ const Contact = () => {
     resolver: yupResolver(contactSchema)
   });
 
-  const onSubmit = (evt) => {
+  const onSubmit = () => {
     clearErrors();
     console.log("Send new message!");
   }

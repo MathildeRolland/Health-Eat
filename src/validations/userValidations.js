@@ -12,4 +12,9 @@ export const subscribeSchema = yup.object().shape({
     email: yup.string().email("Veuillez saisir une adresse email valide").required("Veuillez saisir une adresse email"),
     password: yup.string().min(6, "Veuillez saisir au moins 6 caractères").required("Veuillez saisir un mot de passe"),
     confirmPassword: yup.string().required("Veuillez confirmer votre mot de passe").oneOf([yup.ref("password")])
-}).required("Veuillez renseigner tous les champs");
+}).required("Veuillez saisir tous les champs");
+
+export const connexionSchema = yup.object().shape({
+    email: yup.string().email("Veuillez saisir une adresse email valide").required("Veuillez saisir une adresse email"),
+    password: yup.string().min(6, "Veuillez saisir au moins 6 caractères").required("Veuillez saisir un mot de passe"),
+}).required("Veuillez saisir tous les champs");
