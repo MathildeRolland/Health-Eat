@@ -13,18 +13,16 @@ import InfoBox from 'src/components/InfoBox/InfoBox';
 import './contact.scss';
 
 
-const Contact = ({ name, email, message }) => {
+const Contact = () => {
   const { control, handleSubmit, clearErrors, formState: { errors }} = useForm({
     resolver: yupResolver(contactSchema)
   });
-  const storageObjectName = "contact";
 
   const onSubmit = (evt) => {
     clearErrors();
     console.log("Send new message!");
   }
 
-  console.log("errors ====> ", errors)
   return (
     <div className="contact">
       <Title title="Contactez-nous" />
@@ -38,14 +36,12 @@ const Contact = ({ name, email, message }) => {
           render={({field: {onChange, value}, fieldState: {error}}) => (
             <Input
               type="text"
-              // name="name"
               value={value}
               placeholder="Veuillez renseigner votre nom"
               label="Nom:"
               onChange={onChange}
               error={!!error}
               errorDetails={error?.message}
-              // storageObjectName={storageObjectName}
             />
           )}
         />
@@ -55,15 +51,12 @@ const Contact = ({ name, email, message }) => {
           render={({field: {onChange, value}, fieldState: {error}}) => (
             <Input
               type="email"
-              // name="email"
               value={value}
-              // value={email}
               placeholder="Veuillez renseigner votre email"
               label="Email:"
               onChange={onChange}
               error={!!error}
               errorDetails={error?.message}
-              // storageObjectName={storageObjectName}
             />
           )}
         />
@@ -73,10 +66,8 @@ const Contact = ({ name, email, message }) => {
           render={({field: {onChange, value}, fieldState: {error}}) => (
             <Textarea
               label="Message:"
-              // name="message"
               value={value}
               placeholder="Veuillez écrire votre message"
-              // storageObjectName={storageObjectName}
               onChange={onChange}
               error={!!error}
               errorDetails={error?.message}

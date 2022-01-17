@@ -25,6 +25,7 @@
     &__form {
         display: flex;
         flex-direction: column;
+        position: relative;
 
         @include mixins.desktop {
             margin-top: 1rem;
@@ -33,5 +34,16 @@
         @include mixins.lg-desktop {
             margin-top: 2rem;
         }
+    }
+
+    .input, .textarea {
+        @include mixins.desktop {
+            margin-right: 5%;
+            margin-bottom: 0;
+        }
+    }
+
+    .infobox {
+        margin-top: 1rem
     }
 }   

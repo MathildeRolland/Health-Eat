@@ -9,11 +9,9 @@ import './input.scss';
 
 const Input = ({
   type,
-  // name,
   label,
   placeholder,
   value,
-  // handleChange,
   onChange,
   error = false,
   errorDetails
@@ -27,11 +25,9 @@ const Input = ({
         <input
           className={className}
           type={type}
-          // name={name}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          // onChange={(evt) => {handleChange(evt.target.value)}}
         />
       </div>
       {

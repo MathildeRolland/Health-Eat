@@ -15,7 +15,8 @@
         position: absolute;
         top: -3.5rem;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%); 
+        width: 100%;
 
         @include desktop {
             top: -5rem;
