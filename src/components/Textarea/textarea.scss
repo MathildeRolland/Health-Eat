@@ -1,8 +1,18 @@
-.textarea {
+@use 'src/styles/vars';
 
+.textarea-container {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.textarea {
     &__textarea {
         height: 10rem;
         padding-top: .5rem;
+    }
+
+    &__textarea--error {
+        box-shadow: 2px 2px 5px vars.$error;
     }
 
 }

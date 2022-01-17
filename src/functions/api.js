@@ -7,7 +7,6 @@ export const fetchMeals = (config, store, action) => {
 
     return axiosInstance(config)
     .then((response) => {
-        console.log("arrive ici", response)
         store.dispatch(action(response.data.results));
     })
     .catch((error) => {

@@ -40,26 +40,6 @@ describe('User Reducer', () => {
             }
             expect(reducer()).toEqual(expectedInitialState);
         });
-
-        it('should return new state if parameters are passed', () => {
-            const stateBefore = {
-                currentUser: {
-                    email: "",
-                    password: "",
-                },
-            };
-
-            const stateAfter = reducer(stateBefore, {type: 'SAVE_INPUT', value:"passpass", name: "password", storageObjectName: "currentUser"});
-
-            const stateExpected = {
-                currentUser: {
-                    email: "",
-                    password: "passpass"
-                }
-            }
-
-            expect(stateAfter).toEqual(stateExpected);
-        });
     });
 
     describe('Actions', () => {

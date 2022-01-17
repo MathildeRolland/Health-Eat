@@ -27,14 +27,6 @@ export const initialState = {
 
 export const reducer = (state = initialState, action = {}) => {
     switch(action.type) {
-        case SAVE_INPUT:
-            return {
-                ...state,
-                [action.storageObjectName]: {
-                    ...state[action.storageObjectName],
-                    [action.name]: action.value,
-                },
-            };
         case ADD_TO_MEAL_QUANTITY: {
             const currentMeal = state.basket.find((meal) => meal.id === action.payload.mealId);
 

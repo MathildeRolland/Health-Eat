@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: -1rem;
 
     @include mixins.tablet {
         justify-content: center;
@@ -18,11 +19,13 @@
         width: 75%;
         max-width: 800px;
         margin: auto;
+        margin-top: -4rem;
     }
 
     &__form {
         display: flex;
         flex-direction: column;
+        position: relative;
 
         @include mixins.desktop {
             margin-top: 1rem;
@@ -31,5 +34,16 @@
         @include mixins.lg-desktop {
             margin-top: 2rem;
         }
+    }
+
+    .input, .textarea {
+        @include mixins.desktop {
+            margin-right: 5%;
+            margin-bottom: 0;
+        }
+    }
+
+    .infobox {
+        margin-top: 1.5rem;
     }
 }   
