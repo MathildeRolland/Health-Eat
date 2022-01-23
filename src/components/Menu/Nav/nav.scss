@@ -1,77 +1,75 @@
-@use 'src/styles/mixins';
-@use 'src/styles/vars';
+@use "src/styles/mixins";
+@use "src/styles/vars";
 
 .nav {
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: auto;
-    background: vars.$mediumGreen;
-    z-index: 10;
-    transform: translateY(-80%);
-    transition: transform 1s;
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  background: vars.$mediumGreen;
+  z-index: 10;
+  transform: translateY(-85%);
+  transition: transform 1s;
+
+  @include mixins.tablet {
+    transform: unset;
+    right: 1rem;
+    width: 80%;
+    z-index: 1000;
+    background: transparent;
+  }
+
+  @include mixins.lg-desktop {
+    position: fixed;
+    left: 0;
+    right: 100%;
+    top: 30%;
+    width: 15%;
+  }
+
+  &--open {
+    transform: translateY(16%);
+  }
+
+  &__list {
+    width: 50%;
+    margin: auto;
+    text-align: center;
 
     @include mixins.tablet {
-        transform: unset;
-        right: 1rem;
-        width: 80%;
-        z-index: 1000;
-        background: transparent;
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
     }
 
     @include mixins.lg-desktop {
-        position: fixed;
-        left: 0;
-        right: 100%;
-        top: 30%;
-        width: 15%;
+      flex-direction: column;
+    }
+  }
+
+  &__list-item {
+    padding: 1.5rem 0;
+    border-top: 1px solid vars.$dark;
+
+    &:hover {
+      color: vars.$light;
     }
 
-    &--open {
-        transform: translateY(16%);
+    @include mixins.tablet {
+      border: none;
+      margin: 0 1rem;
+      text-align: right;
     }
 
-
-    &__list {
-        width: 50%;
-        margin: auto;
-        text-align: center;
-
-        @include mixins.tablet {
-            display: flex;
-            justify-content: flex-end;
-            width: 100%;
-        }
-
-        @include mixins.lg-desktop {
-            flex-direction: column;
-        }
+    @include mixins.desktop {
+      font-size: 1.3em;
     }
 
-    &__list-item {
-        padding: 1.5rem 0;
-        border-top: 1px solid vars.$dark;
-
-        &:hover {
-            color: vars.$light;
-        }
-
-        @include mixins.tablet {
-            border: none;
-            margin: 0 1rem;
-            text-align: right;
-        }
-
-        @include mixins.desktop {
-            font-size: 1.3em;
-        }
-
-        &--hidden {
-            @include mixins.lg-desktop {
-                display: none;
-            }
-        }
-
+    &--hidden {
+      @include mixins.lg-desktop {
+        display: none;
+      }
     }
+  }
 }

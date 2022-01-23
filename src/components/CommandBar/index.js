@@ -1,9 +1,9 @@
-import React from 'react';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import Input from 'src/containers/Input';
-import Button from 'src/components/Button';
+import React from "react";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
+import Input from "src/components/Input";
+import Button from "src/components/Button";
 
-import './commandbar.scss';
+import "./commandbar.scss";
 
 const CommandBar = () => {
   const location = useLocation();
@@ -12,15 +12,17 @@ const CommandBar = () => {
   return (
     <div className="commandbar">
       <Input
-          type="text"
-          name="foodsearch"
-          placeholder="Une envie?"
-          storageObjectName={storageObjectName}
+        type="text"
+        name="foodsearch"
+        placeholder="Une envie?"
+        storageObjectName={storageObjectName}
       />
-      <NavLink to={{
-        pathname: "/panier",
-        state: { background: location }
-      }}>
+      <NavLink
+        to={{
+          pathname: "/panier",
+          state: { background: location },
+        }}
+      >
         <Button text="Panier" className="button button--dark" />
       </NavLink>
     </div>

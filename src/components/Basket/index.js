@@ -1,25 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 // == COMPONENTS
-import BasketItem from './BasketItem';
-import Button from 'src/components/Button';
+import BasketItem from "./BasketItem";
+import Button from "src/components/Button";
 
 // == STYLES
-import './basket.scss';
+import "./basket.scss";
 
 // == FUNCTIONS
-import { calcTotalPriceHT } from '../../functions';
+import { calcTotalPriceHT } from "../../functions";
 
 // Render
 const Basket = ({ basket }) => {
   const history = useHistory();
-  console.log("totalPrice", calcTotalPriceHT(basket))
+  console.log("totalPrice", calcTotalPriceHT(basket));
 
   // State
-  let [ totalTTC, setTotalTTC ] = useState(calcTotalPriceHT(basket));
-  const [ deliverPrice, setDeliverPrice ] = useState(4);
-  const [ isChecked, setIsChecked ] = useState(false);
+  let [totalTTC, setTotalTTC] = useState(calcTotalPriceHT(basket));
+  const [deliverPrice, setDeliverPrice] = useState(basket.length > 0 ? 4 : 0);
+  const [isChecked, setIsChecked] = useState(false);
 
   // Refs
   const basketModal = useRef(null);
@@ -27,7 +27,7 @@ const Basket = ({ basket }) => {
   // Close modal
   useEffect(() => {
     const handleClick = (evt) => {
-      if(!basketModal.current.contains(evt.target)) {
+      if (!basketModal.current.contains(evt.target)) {
         evt.stopPropagation();
         history.goBack();
       }
@@ -39,30 +39,43 @@ const Basket = ({ basket }) => {
 
   const handleChange = () => {
     setIsChecked(!isChecked);
-  }
-  
+  };
+
   return (
     <div className="basket" ref={basketModal}>
       <div className="basket__current-command">
-        {
-          basket.map((meal) => <BasketItem name={meal.name} price={meal.price} number={meal.quantity} key={meal.id} />)
-        }
+        {basket.map((meal) => (
+          <BasketItem
+            name={meal.name}
+            price={meal.price}
+            number={meal.quantity}
+            key={meal.id}
+          />
+        ))}
       </div>
       <div className="basket__validation">
         <div className="basket__properties">
           <p className="basket__property">Total</p>
           <p className="basket__property">Livraison</p>
           <p className="basket__property">Total avec livraison</p>
-          <p className="basket__property basket__checkbox">Demander des couverts, pailles...</p>
+          <p className="basket__property basket__checkbox">
+            Demander des couverts, pailles...
+          </p>
         </div>
         <div className="basket__prices">
           <p className="basket__price">{totalTTC.toFixed(2)}€</p>
-          <p className='basket__price'>{deliverPrice}€</p>
-          <p className="basket__price total">{(totalTTC += deliverPrice).toFixed(2)}€</p>
-          <input type="checkbox" className="basket__checkbox" onChange={handleChange}/>
+          <p className="basket__price">{deliverPrice}€</p>
+          <p className="basket__price total">
+            {(totalTTC += deliverPrice).toFixed(2)}€
+          </p>
+          <input
+            type="checkbox"
+            className="basket__checkbox"
+            onChange={handleChange}
+          />
         </div>
       </div>
-      <Button text="Commander" className="button button--colored"/>
+      <Button text="Commander" className="button button--colored" />
     </div>
   );
 };

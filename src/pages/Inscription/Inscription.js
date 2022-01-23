@@ -1,40 +1,47 @@
-import React from 'react';
+import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup';
-import { subscribeSchema } from '../../validations/userValidations';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { subscribeSchema } from "../../validations/userValidations";
 
 // == COMPONENTS
-import Title from 'src/components/Title';
-import Input from 'src/containers/Input';
-import InfoBox from 'src/components/InfoBox/InfoBox';
+import Title from "src/components/Title";
+import Input from "src/components/Input";
+import InfoBox from "src/components/InfoBox/InfoBox";
 
 // == STYLES
-import './inscription.scss';
-
+import "./inscription.scss";
 
 const Inscription = () => {
-  const { control, handleSubmit, clearErrors, formState: { errors }} = useForm({
-    resolver: yupResolver(subscribeSchema)
+  const {
+    control,
+    handleSubmit,
+    clearErrors,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(subscribeSchema),
   });
 
   const onSubmit = () => {
     clearErrors();
     console.log("Send new message!");
-  }
+  };
 
-  console.log(`errors`, errors)
+  console.log(`errors`, errors);
 
   return (
     <div className="inscription">
       <Title title="Inscription" />
       <form className="inscription__form" onSubmit={handleSubmit(onSubmit)}>
-        {
-          errors && Object.keys(errors).length !== 0 && <InfoBox className="infobox infobox--global-error" info="Veuillez remplir tous les champs" />
-        }
-        <Controller 
+        {errors && Object.keys(errors).length !== 0 && (
+          <InfoBox
+            className="infobox infobox--global-error"
+            info="Veuillez remplir tous les champs"
+          />
+        )}
+        <Controller
           control={control}
           name="name"
-          render={({field: {onChange, value}, fieldState: {error}}) => (
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
             <Input
               type="text"
               label="Nom:"
@@ -46,10 +53,10 @@ const Inscription = () => {
             />
           )}
         />
-        <Controller 
+        <Controller
           control={control}
           name="firstname"
-          render={({field: {onChange, value}, fieldState: {error}}) => (
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
             <Input
               type="text"
               label="Prénom:"
@@ -61,10 +68,10 @@ const Inscription = () => {
             />
           )}
         />
-        <Controller 
+        <Controller
           control={control}
           name="email"
-          render={({field: {onChange, value}, fieldState: {error}}) => (
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
             <Input
               type="email"
               label="Email:"
@@ -76,10 +83,10 @@ const Inscription = () => {
             />
           )}
         />
-        <Controller 
+        <Controller
           control={control}
           name="password"
-          render={({field: {onChange, value}, fieldState: {error}}) => (
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
             <Input
               type="password"
               name="password"
@@ -92,10 +99,10 @@ const Inscription = () => {
             />
           )}
         />
-        <Controller 
+        <Controller
           control={control}
           name="confirmPassword"
-          render={({field: {onChange, value}, fieldState: {error}}) => (
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
             <Input
               type="password"
               name="passwordVerif"
@@ -108,8 +115,12 @@ const Inscription = () => {
             />
           )}
         />
-        <div className="input" style={{marginTop: '2rem'}}>
-          <input className="input__input input__input--submit" type="submit" value="M'INSCRIRE" />
+        <div className="input" style={{ marginTop: "2rem" }}>
+          <input
+            className="input__input input__input--submit"
+            type="submit"
+            value="M'INSCRIRE"
+          />
         </div>
       </form>
     </div>
