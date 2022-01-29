@@ -1,10 +1,19 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import Connexion from 'src/components/Connexion';
+import { connectUser } from "../../actions/user";
+
+import Connexion from "src/components/Connexion";
 
 const mapStateToProps = (state, ownProps) => ({
-    isConnexionOpen: state.isConnexionOpen,
-    currentUser: state.user.currentUser,
+  isConnexionOpen: state.isConnexionOpen,
+  currentUser: state.user.currentUser,
+  isLogged: state.user.isLogged,
 });
 
-export default connect(mapStateToProps)(Connexion);
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  handleConnexion: (userDatas) => {
+    dispatch(connectUser(userDatas));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Connexion);

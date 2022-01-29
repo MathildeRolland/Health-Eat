@@ -1,27 +1,32 @@
-@use 'src/styles/vars';
-@use 'src/styles/mixins';
+@use "src/styles/vars";
+@use "src/styles/mixins";
 
 .userbar {
-    margin: 0 1.5rem;
-    padding: 1rem 0;
+  margin: 0 1.5rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+  display: none;
+
+  @include mixins.lg-desktop {
+    border-bottom: 1px solid vars.$inputGrey;
     display: flex;
-    justify-content: flex-end;
-    display: none;
+  }
 
-    @include mixins.lg-desktop {
-        border-bottom: 1px solid vars.$inputGrey;
-        display: flex;
+  .button {
+    margin-left: 0.5rem;
+
+    &--hidden {
+      display: none;
+
+      @include mixins.lg-desktop {
+        display: block;
+      }
     }
 
-    .button {
-        margin-left: .5rem;
-
-        &--hidden {
-            display: none;
-
-            @include mixins.lg-desktop {
-                display: block;
-            }
-        }
+    &--out {
+      background: rgb(247, 144, 144);
+      border: 1px solid rgb(191, 2, 2);
     }
+  }
 }

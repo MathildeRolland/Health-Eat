@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { contactSchema } from "../../validations/userValidations";
@@ -13,6 +13,9 @@ import InfoBox from "src/components/InfoBox/InfoBox";
 import "./contact.scss";
 
 const Contact = () => {
+  // State
+  const [isMessageSent, setIsMessageSent] = useState(false);
+
   const {
     control,
     handleSubmit,
@@ -24,11 +27,19 @@ const Contact = () => {
 
   const onSubmit = () => {
     clearErrors();
-    console.log("Send new message!");
+    setIsMessageSent(true);
   };
+
+  const displayMessage = (
+    <InfoBox
+      info="Votre message a bien été envoyé."
+      className="infobox infobox--box-success"
+    />
+  );
 
   return (
     <div className="contact">
+      {isMessageSent && displayMessage}
       <Title title="Contactez-nous" />
       <form className="contact__form" onSubmit={handleSubmit(onSubmit)}>
         {errors && Object.keys(errors).length !== 0 && (

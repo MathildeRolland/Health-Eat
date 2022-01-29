@@ -1,17 +1,16 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
+import { handleSubscription } from "../../actions/user";
 
-import Inscription from 'src/components/Inscription';
+import Inscription from "../../pages/Inscription/Inscription";
 
 const mapStateToProps = (state, ownProps) => ({
-    name: state.user.newUser.name,
-    firstname: state.user.newUser.firstname,
-    email: state.user.newUser.email,
-    password: state.user.newUser.password,
-    passwordVerif: state.user.newUser.passwordVerif,
+  newUser: state.user.newUser,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-
+  submitNewUser: (userDatas) => {
+    dispatch(handleSubscription(userDatas));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Inscription);

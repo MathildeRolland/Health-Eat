@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { Switch, Route, useLocation } from 'react-router';
+import React, { useEffect } from "react";
+import { Switch, Route, useLocation } from "react-router";
 
-import Homepage from 'src/containers/Homepage';
-import Inscription from 'src/pages/Inscription/Inscription';
-import Connexion from 'src/containers/Connexion';
-import Contact from 'src/pages/Contact/Contact';
-import User from 'src/pages/User/User';
-import Basket from 'src/containers/Basket';
+import Homepage from "src/containers/Homepage";
+import Inscription from "src/containers/Inscription";
+import Connexion from "src/containers/Connexion";
+import Contact from "src/pages/Contact/Contact";
+import User from "src/pages/User/User";
+import Basket from "src/containers/Basket";
 
-import './page.scss';
+import "./page.scss";
 
 const Page = ({ fetchMealsFromApi }) => {
   const location = useLocation();
@@ -38,17 +38,10 @@ const Page = ({ fetchMealsFromApi }) => {
           <Contact />
         </Route>
       </Switch>
-      
-      {
-        background && <Route path="/login" children={<Connexion />} />
-      }
-      {
-        background && <Route path="/panier" children={<Basket />} />
-      }
-        
 
+      {background && <Route path="/login" children={<Connexion />} />}
+      {background && <Route path="/panier" children={<Basket />} />}
     </div>
-    
   );
 };
 

@@ -68,11 +68,13 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
     "yarn": "^1.22.10",
     "yup": "^0.32.11"
   },
   "version": "1.0.0",
   "main": "index.js",
+  "homepage": "./dist/index.html",
   "repository": "git@github.com:MathildeRolland/Health-Eat.git",
   "author": "Mathilde Rolland <rolland.mmathilde@gmail.com>",
   "license": "MIT",

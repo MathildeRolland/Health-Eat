@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,8 +13,12 @@ import InfoBox from "src/components/InfoBox/InfoBox";
 import "./connexion.scss";
 
 // = = = = = = = = = = COMPONENT = = = = = = = = = = //
-const Connexion = ({ currentUser }) => {
+const Connexion = ({ handleConnexion, currentUser, isLogged }) => {
   const history = useHistory();
+
+  // State
+  const [infoboxParams, setInfoboxParams] = useState({});
+  let [submitCounter, setSubmitCounter] = useState(0);
 
   // Ref
   const modal = useRef(null);
@@ -24,16 +28,50 @@ const Connexion = ({ currentUser }) => {
     control,
     handleSubmit,
     clearErrors,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(connexionSchema),
   });
 
-  const onSubmit = () => {
-    clearErrors();
-    console.log("Send new message!");
+  const displayMessage = (
+    <InfoBox info={infoboxParams.message} className={infoboxParams.class} />
+  );
+
+  const checkUserConnected = () => {
+    if (isLogged !== undefined) {
+      if (isLogged === true) {
+        setInfoboxParams({
+          message: "Connexion réussie",
+          class: "infobox infobox--box-success",
+        });
+        setTimeout(() => {
+          history.goBack();
+        }, 2500);
+      } else {
+        setInfoboxParams({
+          message: "La connexion a échouée, veuillez réessayer",
+          class: "infobox infobox--box-error",
+        });
+      }
+    }
   };
 
+  const onSubmit = (data) => {
+    clearErrors();
+    handleConnexion(data);
+    setSubmitCounter((submitCounter += 1));
+    reset({
+      email: "",
+      password: "",
+    });
+  };
+
+  useEffect(() => {
+    checkUserConnected();
+  }, [submitCounter]);
+
+  // handle close modal on click outside
   useEffect(() => {
     const handleClick = (evt) => {
       if (!modal.current.contains(evt.target)) {
@@ -49,6 +87,7 @@ const Connexion = ({ currentUser }) => {
   return (
     <div className="connexion">
       <div className="connexion__modal" ref={modal}>
+        {displayMessage}
         <Title title="Se connecter" />
         <form className="connexion__form" onSubmit={handleSubmit(onSubmit)}>
           {errors && Object.keys(errors).length !== 0 && (

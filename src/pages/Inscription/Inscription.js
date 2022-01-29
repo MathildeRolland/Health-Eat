@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { subscribeSchema } from "../../validations/userValidations";
 
@@ -11,25 +12,64 @@ import InfoBox from "src/components/InfoBox/InfoBox";
 // == STYLES
 import "./inscription.scss";
 
-const Inscription = () => {
+const Inscription = ({ submitNewUser, newUser }) => {
+  const history = useHistory();
+
+  // State
+  const [infoboxParams, setInfoboxParams] = useState({});
+  let [subscribeCounter, setSubscribeCounter] = useState(0);
+
   const {
     control,
     handleSubmit,
     clearErrors,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(subscribeSchema),
   });
 
-  const onSubmit = () => {
+  const onSubmit = (data) => {
     clearErrors();
-    console.log("Send new message!");
+    submitNewUser(data);
+    setSubscribeCounter((subscribeCounter += 1));
+    reset({
+      name: "",
+      firstname: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
   };
 
-  console.log(`errors`, errors);
+  const displayMessage = (
+    <InfoBox info={infoboxParams.message} className={infoboxParams.class} />
+  );
+
+  const checkSubscription = () => {
+    if (newUser.email !== "") {
+      setInfoboxParams({
+        message: "Vous êtes désormais inscrit.",
+        class: "infobox infobox--box-success",
+      });
+      setTimeout(() => {
+        history.push("/");
+      }, 2500);
+    } else {
+      setInfoboxParams({
+        message: "L'inscription a échoué, veuillez réessayer",
+        class: "infobox infobox--box-error",
+      });
+    }
+  };
+
+  useEffect(() => {
+    checkSubscription();
+  }, [subscribeCounter]);
 
   return (
     <div className="inscription">
+      {subscribeCounter !== 0 && displayMessage}
       <Title title="Inscription" />
       <form className="inscription__form" onSubmit={handleSubmit(onSubmit)}>
         {errors && Object.keys(errors).length !== 0 && (
