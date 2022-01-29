@@ -11,6 +11,11 @@ export const connectUser = (payload) => ({
   payload,
 });
 
+export const DECONNECT_USER = "DECONNECT_USER";
+export const deconnectUser = () => ({
+  type: DECONNECT_USER,
+});
+
 // = = = = = = = = = = = Add 1 to quantity = = = = = = = = = = //
 export const ADD_TO_MEAL_QUANTITY = "ADD_TO_MEAL_QUANTITY";
 export const addToMealQuantity = (payload) => ({

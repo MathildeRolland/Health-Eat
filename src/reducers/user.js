@@ -3,6 +3,7 @@ import {
   ADD_TO_MEAL_QUANTITY,
   RETRIEVE_TO_MEAL_QUANTITY,
   CONNECT_USER,
+  DECONNECT_USER,
 } from "src/actions/user";
 
 export const initialState = {
@@ -59,6 +60,15 @@ export const reducer = (state = initialState, action = {}) => {
         },
       };
     }
+    case DECONNECT_USER:
+      return {
+        ...state,
+        currentUser: {
+          email: "",
+          password: "",
+        },
+        isLogged: false,
+      };
     case ADD_TO_MEAL_QUANTITY: {
       const currentMeal = state.basket.find(
         (meal) => meal.id === action.payload.mealId

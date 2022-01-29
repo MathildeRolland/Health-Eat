@@ -1,23 +1,33 @@
-@use 'src/styles/vars';
+@use "src/styles/vars";
 
 .button {
-    border: none;
-    padding: .5rem 2rem;
-    border-radius: 1rem;
-    cursor: pointer;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
 
-    &--dark {
-        background: vars.$dark;
-        color: vars.$light;
+  &--dark {
+    background: vars.$dark;
+    color: vars.$light;
+  }
+
+  &--colored {
+    background: vars.$mediumGreen;
+    color: vars.$dark;
+
+    &:hover {
+      background: vars.$dark;
+      color: vars.$mediumGreen;
     }
+  }
 
-    &--colored {
-        background: vars.$mediumGreen;
-        color: vars.$dark;
+  &--danger {
+    background: rgb(247, 144, 144);
+    border: 1px solid rgb(191, 2, 2);
 
-        &:hover {
-            background: vars.$dark;
-            color: vars.$mediumGreen;
-        }
+    &:hover {
+      color: vars.$light;
+      background: rgb(191, 2, 2);
     }
+  }
 }

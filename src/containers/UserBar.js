@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import UserBar from "../components/UserBar";
 
 const mapStateToProps = (state, ownProps) => ({
-  currentUser: state.user.currentUser,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({});

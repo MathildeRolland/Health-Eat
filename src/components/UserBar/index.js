@@ -5,26 +5,36 @@ import Button from "src/components/Button";
 
 import "./userbar.scss";
 
-const UserBar = ({ currentUser }) => {
+const UserBar = ({ isLogged }) => {
   const location = useLocation();
 
   return (
     <div className="userbar">
-      <NavLink
-        to={{
-          pathname: "/login",
-          state: { background: location },
-        }}
-      >
-        <Button
-          text={currentUser.email !== "" ? "Se Déconnecter" : "Se Connecter"}
-          className={
-            currentUser.email !== ""
-              ? "button button--colored button--hidden button--out"
-              : "button button--colored button--hidden"
-          }
-        />
-      </NavLink>
+      {isLogged ? (
+        <NavLink
+          to={{
+            pathname: "/logout",
+            state: { background: location },
+          }}
+        >
+          <Button
+            text="Se Déconnecter"
+            className="button button--colored button--hidden button--out"
+          />
+        </NavLink>
+      ) : (
+        <NavLink
+          to={{
+            pathname: "/login",
+            state: { background: location },
+          }}
+        >
+          <Button
+            text="Se Connecter"
+            className={"button button--colored button--hidden"}
+          />
+        </NavLink>
+      )}
     </div>
   );
 };

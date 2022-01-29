@@ -4,6 +4,7 @@ import { Switch, Route, useLocation } from "react-router";
 import Homepage from "src/containers/Homepage";
 import Inscription from "src/containers/Inscription";
 import Connexion from "src/containers/Connexion";
+import Logout from "src/containers/Logout";
 import Contact from "src/pages/Contact/Contact";
 import User from "src/pages/User/User";
 import Basket from "src/containers/Basket";
@@ -40,6 +41,7 @@ const Page = ({ fetchMealsFromApi }) => {
       </Switch>
 
       {background && <Route path="/login" children={<Connexion />} />}
+      {background && <Route path="/logout" children={<Logout />} />}
       {background && <Route path="/panier" children={<Basket />} />}
     </div>
   );

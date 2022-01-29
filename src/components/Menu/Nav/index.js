@@ -6,7 +6,7 @@ import ListItem from "./ListItem";
 
 import "./nav.scss";
 
-const Nav = ({ burgerIsClicked, currentUser, handleClick }) => {
+const Nav = ({ burgerIsClicked, currentUser, isLogged, handleClick }) => {
   const location = useLocation();
 
   return (
@@ -18,27 +18,42 @@ const Nav = ({ burgerIsClicked, currentUser, handleClick }) => {
           className="nav__list-item"
           onClick={handleClick}
         />
-        <ListItem
-          path="/user"
-          text="MES INFORMATIONS"
-          className="nav__list-item"
-          onClick={handleClick}
-        />
+        {currentUser.email !== "" && (
+          <ListItem
+            path="/user"
+            text="MES INFORMATIONS"
+            className="nav__list-item"
+            onClick={handleClick}
+          />
+        )}
         <ListItem
           path="/submit"
           text="S'INSCRIRE"
           className="nav__list-item"
           onClick={handleClick}
         />
-        <ListItem
-          path={{
-            pathname: "/login",
-            state: { background: location }, // save the location where we were right before we clicked the link
-          }}
-          text={currentUser.email !== "" ? "SE DECONNECTER" : "SE CONNECTER"}
-          className="nav__list-item nav__list-item--hidden"
-          onClick={handleClick}
-        />
+        {!isLogged ? (
+          <ListItem
+            path={{
+              pathname: "/login",
+              state: { background: location }, // save the location where we were right before we clicked the link
+            }}
+            text="SE CONNECTER"
+            className="nav__list-item nav__list-item--hidden"
+            onClick={handleClick}
+          />
+        ) : (
+          <ListItem
+            path={{
+              pathname: "/logout",
+              state: { background: location }, // save the location where we were right before we clicked the link
+            }}
+            text="SE DECONNECTER"
+            className="nav__list-item nav__list-item--hidden"
+            onClick={handleClick}
+          />
+        )}
+
         <ListItem
           path="/contact"
           text="NOUS CONTACTER"

@@ -6,6 +6,7 @@ import Nav from "src/components/Menu/Nav";
 const mapStateToProps = (state, ownProps) => ({
   burgerIsClicked: state.general.burgerIsClicked,
   currentUser: state.user.currentUser,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
