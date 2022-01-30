@@ -1,0 +1,156 @@
+@use "src/styles/vars";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+.loader {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 200px;
+  height: 200px;
+
+  &__square {
+    width: 100px;
+    height: 100px;
+
+    &--center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: vars.$mediumGreen;
+      animation: beat 1.7s linear infinite;
+    }
+
+    &--left {
+      border-top: 5px solid vars.$light;
+      border-left: 5px solid vars.$light;
+      background-color: transparent;
+      align-self: flex-start;
+      transform-origin: bottom right;
+      animation: turn1 6.8s ease-out infinite;
+    }
+
+    &--right {
+      border-right: 5px solid vars.$light;
+      border-bottom: 5px solid vars.$light;
+      background-color: transparent;
+      align-self: flex-end;
+      transform-origin: top left;
+      animation: turn2 6.8s ease-out infinite;
+    }
+  }
+}
+
+@keyframes beat {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}
+
+@keyframes turn1 {
+  0% {
+    transform: rotate(0);
+  }
+  5% {
+    transform: rotate(100deg);
+  }
+  7% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  30% {
+    transform: rotate(190deg);
+  }
+  32% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  55% {
+    transform: rotate(280deg);
+  }
+  57% {
+    transform: rotate(270deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  80% {
+    transform: rotate(370deg);
+  }
+  82% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes turn2 {
+  0% {
+    transform: rotate(0);
+  }
+  5% {
+    transform: rotate(100deg);
+  }
+  7% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  30% {
+    transform: rotate(190deg);
+  }
+  32% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  55% {
+    transform: rotate(280deg);
+  }
+  57% {
+    transform: rotate(270deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  80% {
+    transform: rotate(370deg);
+  }
+  82% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

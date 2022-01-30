@@ -8,6 +8,7 @@ import { connexionSchema } from "../../validations/userValidations";
 import Title from "src/components/Title";
 import Input from "src/components/Input";
 import InfoBox from "src/components/InfoBox/InfoBox";
+import Loader from "src/components/Loader";
 
 // Styles
 import "./connexion.scss";
@@ -19,6 +20,7 @@ const Connexion = ({ handleConnexion, currentUser, isLogged }) => {
   // State
   const [infoboxParams, setInfoboxParams] = useState({});
   let [submitCounter, setSubmitCounter] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Ref
   const modal = useRef(null);
@@ -46,6 +48,7 @@ const Connexion = ({ handleConnexion, currentUser, isLogged }) => {
           class: "infobox infobox--box-success",
         });
         setTimeout(() => {
+          setIsLoading(false);
           history.goBack();
         }, 2500);
       } else {
@@ -59,6 +62,7 @@ const Connexion = ({ handleConnexion, currentUser, isLogged }) => {
 
   const onSubmit = (data) => {
     clearErrors();
+    setIsLoading(true);
     handleConnexion(data);
     setSubmitCounter((submitCounter += 1));
     reset({
@@ -68,7 +72,9 @@ const Connexion = ({ handleConnexion, currentUser, isLogged }) => {
   };
 
   useEffect(() => {
-    checkUserConnected();
+    if (submitCounter !== 0) {
+      checkUserConnected();
+    }
   }, [submitCounter]);
 
   // handle close modal on click outside
@@ -135,6 +141,7 @@ const Connexion = ({ handleConnexion, currentUser, isLogged }) => {
           </div>
         </form>
       </div>
+      {isLoading && <Loader />}
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { subscribeSchema } from "../../validations/userValidations";
 import Title from "src/components/Title";
 import Input from "src/components/Input";
 import InfoBox from "src/components/InfoBox/InfoBox";
+import Loader from "src/components/Loader";
 
 // == STYLES
 import "./inscription.scss";
@@ -18,6 +19,7 @@ const Inscription = ({ submitNewUser, newUser }) => {
   // State
   const [infoboxParams, setInfoboxParams] = useState({});
   let [subscribeCounter, setSubscribeCounter] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     control,
@@ -31,6 +33,7 @@ const Inscription = ({ submitNewUser, newUser }) => {
 
   const onSubmit = (data) => {
     clearErrors();
+    setIsLoading(true);
     submitNewUser(data);
     setSubscribeCounter((subscribeCounter += 1));
     reset({
@@ -53,6 +56,7 @@ const Inscription = ({ submitNewUser, newUser }) => {
         class: "infobox infobox--box-success",
       });
       setTimeout(() => {
+        setIsLoading(false);
         history.push("/");
       }, 2500);
     } else {
@@ -63,8 +67,12 @@ const Inscription = ({ submitNewUser, newUser }) => {
     }
   };
 
+  console.log("isLoading", isLoading);
+
   useEffect(() => {
-    checkSubscription();
+    if (subscribeCounter !== 0) {
+      checkSubscription();
+    }
   }, [subscribeCounter]);
 
   return (
@@ -163,6 +171,7 @@ const Inscription = ({ submitNewUser, newUser }) => {
           />
         </div>
       </form>
+      {isLoading && <Loader />}
     </div>
   );
 };
