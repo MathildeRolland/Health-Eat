@@ -4,6 +4,8 @@ import {
   RETRIEVE_TO_MEAL_QUANTITY,
   CONNECT_USER,
   DECONNECT_USER,
+  MODIFY_EMAIL,
+  MODIFY_PASSWORD,
 } from "src/actions/user";
 
 export const initialState = {
@@ -68,6 +70,30 @@ export const reducer = (state = initialState, action = {}) => {
           password: "",
         },
         isLogged: false,
+      };
+    case MODIFY_EMAIL:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          email: action.payload,
+        },
+        newUser: {
+          ...state.newUser,
+          email: action.payload,
+        },
+      };
+    case MODIFY_PASSWORD:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          password: action.payload,
+        },
+        newUser: {
+          ...state.newUser,
+          password: action.payload,
+        },
       };
     case ADD_TO_MEAL_QUANTITY: {
       const currentMeal = state.basket.find(

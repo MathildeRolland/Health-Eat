@@ -16,9 +16,9 @@ const Page = ({ fetchMealsFromApi }) => {
   const background = location.state && location.state.background;
 
   // Fetch meals
-  useEffect(() => {
-    fetchMealsFromApi();
-  }, []);
+  // useEffect(() => {
+  //   fetchMealsFromApi();
+  // }, []);
 
   return (
     <div className="page">

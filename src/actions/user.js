@@ -16,6 +16,19 @@ export const deconnectUser = () => ({
   type: DECONNECT_USER,
 });
 
+// = = = = = = = = = = = Modify connexion infos = = = = = = = = = = //
+export const MODIFY_EMAIL = "MODIFY_EMAIL";
+export const modifyEmail = (payload) => ({
+  type: MODIFY_EMAIL,
+  payload,
+});
+
+export const MODIFY_PASSWORD = "MODIFY_PASSWORD";
+export const modifyPassword = (payload) => ({
+  type: MODIFY_PASSWORD,
+  payload,
+});
+
 // = = = = = = = = = = = Add 1 to quantity = = = = = = = = = = //
 export const ADD_TO_MEAL_QUANTITY = "ADD_TO_MEAL_QUANTITY";
 export const addToMealQuantity = (payload) => ({

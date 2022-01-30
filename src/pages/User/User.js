@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import Title from 'src/components/Title';
-import InfosBox from 'src/components/User/InfosBox';
-import Subtitle from 'src/components/Subtitle';
-import LastCommand from 'src/components/User/LastCommand';
+import Title from "src/components/Title";
+import InfosBox from "src/containers/InfosBox";
+import Subtitle from "src/components/Subtitle";
+import LastCommand from "src/components/User/LastCommand";
 
-import './user.scss';
+import "./user.scss";
 
 const User = () => (
   <div className="user">
@@ -13,9 +13,9 @@ const User = () => (
     <InfosBox />
     <Subtitle subtitle="Mes 3 dernières commandes:" />
     <div className="user__lastcommands">
-        <LastCommand />
-        <LastCommand />
-        <LastCommand />
+      <LastCommand />
+      <LastCommand />
+      <LastCommand />
     </div>
   </div>
 );
